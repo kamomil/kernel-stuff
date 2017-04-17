@@ -23,7 +23,7 @@ int mycdrv_mymmap (struct file *file, struct vm_area_struct *vma)
 {
   //int remap_pfn_range(struct vm_area_struct *, unsigned long addr,unsigned long pfn, unsigned long size, pgprot_t);
   unsigned long mmap_size;
-  phys_addr_t ramdisk =  0x0000000086000000;
+  phys_addr_t ramdisk =  0x0000000090000000;
   //unsigned long  range_size = 300000;
 
   if(!file && !vma){
@@ -34,12 +34,12 @@ int mycdrv_mymmap (struct file *file, struct vm_area_struct *vma)
 
   print_virtual_reg(__va(ramdisk));
 
-  dev_info(my_dev,"MMAP: PAGE_SIZE %lu PAGE_SHIFT %d ramdisk (virtual) = %p phisical (0x%llx), mmap_size = %ld\n", PAGE_SIZE,PAGE_SHIFT, __va(ramdisk),ramdisk, mmap_size);
+  dev_info(my_dev,"MMAP: PAGE_SIZE %lu PAGE_SHIFT %d ramdisk (virtual) = %p phisical (0x%lx), mmap_size = %ld\n", PAGE_SIZE,PAGE_SHIFT, __va(ramdisk),ramdisk, mmap_size);
   
   dev_info(my_dev,"MMAP: before: vma = %p, vma->vm_start = %p, __pa(ramdisk) = 0x%llx, mmap_size = %ld, vma->vm_page_prot = 0x%llx\n",vma, (void *)vma->vm_start, __pa(ramdisk), mmap_size, vma->vm_page_prot);
 
  
-  if(remap_pfn_range(vma, vma->vm_start, __va(ramdisk), mmap_size, vma->vm_page_prot)){
+  if(remap_pfn_range(vma, vma->vm_start, ramdisk >> PAGE_SHIFT , mmap_size, vma->vm_page_prot)){
     dev_warn(my_dev,"remap_pfn_range failed\n");
     return -EAGAIN;
   }
@@ -91,7 +91,7 @@ static int my_probe(struct platform_device *pdev)
   struct  property *p = NULL;
   void *virt_addr_ptr = NULL;
   struct page **my_page = NULL;
-  unsigned long phys_addr_ptr =  0x0000000086000000;
+  unsigned long phys_addr_ptr =  0x0000000090000000; //0x0000000086000000; 
   
   pr_info("MY_PROBE: pdev = %p\n",pdev);
   memset(resources,0,sizeof(resources));
