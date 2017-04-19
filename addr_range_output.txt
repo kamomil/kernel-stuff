@@ -1,0 +1,59 @@
+root@linaro-developer:~/kernel-stuff# insmod show_addr_range.ko 
+[ 2393.527910] PAGE_OFFSET = 0xffffffc000000000
+[ 2393.527963] PAGE_SHIFT = 12
+[ 2393.531465] high_memory = 0xffffffc040000000
+[ 2393.533948] (unsigned long)virt_to_page(PAGE_OFFSET) = 0xffffffbdc0000000
+[ 2393.538486] (unsigned long)virt_to_page(high_memory) = 0xffffffbdc1000000
+[ 2393.545150] PHYS_OFFSET = 0x80000000
+[ 2393.551884] vmalloc: starts: 0xffffff8000000000 ends 0xffffffbdbfff0000
+[ 2393.555559] vmemmap: starts: 0xffffffbdc0000000 ends 0xffffffbfc0000000
+[ 2393.561863] fixed:   starts: 0xffffffbffa7fd000 ends 0xffffffbffac00000
+[ 2393.568491] PCI I/O: starts: 0xffffffbffae00000 ends 0xffffffbffbe00000
+[ 2393.575047] modules: starts: 0xffffffbffc000000 ends 0xffffffc000000000
+[ 2393.581688] memory:  starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.588224] 
+[ 2393.594831] checking range for address of local module variable:
+[ 2393.596461] p is ffffffc033fb3c5c 
+[ 2393.602549] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.605769] 
+[ 2393.613294] checking range for address of global module variable:
+[ 2393.614980] p is ffffffbffc039390 
+[ 2393.621109] p is in the modules region, starts: 0xffffffbffc000000 ends 0xffffffc000000000
+[ 2393.624278] 
+[ 2393.632490] checking range for address allocated with GFP_KERNEL:
+[ 2393.634164] p is ffffffc033f1b200 
+[ 2393.640131] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.643445] 
+[ 2393.650985] checking range for address allocated with GFP_ATOMIC:
+[ 2393.652535] p is ffffffc033f1b580 
+[ 2393.658624] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.661915] 
+[ 2393.669461] checking range for address allocated with GFP_DMA:
+[ 2393.671114] p is ffffffc032ab4080 
+[ 2393.676762] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.680146] 
+[ 2393.687691] checking range for address allocated with GFP_DMA32:
+[ 2393.689253] p is ffffffc033f1b080 
+[ 2393.695338] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.698541] 
+[ 2393.706091] checking ange for address allocated with GFP_NOIO:
+[ 2393.707655] p is ffffffc034445b80 
+[ 2393.713395] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.716769] 
+[ 2393.724325] checking ange for address allocated with GFP_USER:
+[ 2393.725976] p is ffffffc033f1e880 
+[ 2393.731622] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.735007] 
+[ 2393.742552] checking ange for address allocated with GFP_HIGHUSER:
+[ 2393.744114] p is ffffffc033f1eb00 
+[ 2393.750197] p is in the memory, starts: 0xffffffc000000000 ends 0xffffffc040000000
+[ 2393.753487] 
+[ 2393.761187] checking ange for address allocated with vmalloc:
+[ 2393.762785] p is ffffff800807d000 
+[ 2393.768433] p is in the vmalloc region, starts: 0xffffff8000000000 ends 0xffffffbdbfff0000
+[ 2393.771727] 
+[ 2393.779961] checking ange for address phys_to_virt(0):
+[ 2393.781526] p is ffffffbf80000000 
+[ 2393.786572] p is in the vmemmap region, starts: 0xffffffbdc0000000 ends 0xffffffbfc0000000
+[ 2393.789955] 
+[ 2393.798217] misc lab2_interrupt: Succeeded in registering device lab2_interrupt
