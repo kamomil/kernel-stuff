@@ -56,6 +56,8 @@ int print_mem_regs(void){
   printk( KERN_INFO "PCI I/O: starts: 0x%lx ends 0x%lx\n",PCI_IO_START, PCI_IO_END);
   printk( KERN_INFO "modules: starts: 0x%lx ends 0x%lx\n",MODULES_VADDR, MODULES_END);
   printk( KERN_INFO "memory:  starts: 0x%lx ends 0x%lx\n",PAGE_OFFSET,(unsigned long)high_memory);
+
+  printk( KERN_INFO "physical range corresponding to memory:  starts: 0x%llx ends 0x%llx\n",virt_to_phys(PAGE_OFFSET),virt_to_phys(high_memory));
     
   printk(KERN_INFO "\n");
   return 0;
