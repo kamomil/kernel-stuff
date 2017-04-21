@@ -1,8 +1,9 @@
+[    0.000000] start_kernel: (in init/main.c) Dafna
 [    0.000000] Booting Linux on physical CPU 0x0
 [    0.000000] Initializing cgroup subsys cpuset
 [    0.000000] Initializing cgroup subsys cpu
 [    0.000000] Initializing cgroup subsys cpuacct
-[    0.000000] Linux version 4.4.23-linaro-lt-qcom (dafna@guri) (gcc version 5.4.0 20160609 (Ubuntu/Linaro 5.4.0-6ubuntu1~16.04.4) ) #28 SMP PREEMPT 7
+[    0.000000] Linux version 4.4.23-linaro-lt-qcom (dafna@guri) (gcc version 5.4.0 20160609 (Ubuntu/Linaro 5.4.0-6ubuntu1~16.04.4) ) #30 SMP PREEMPT 7
 [    0.000000] Boot CPU: AArch64 Processor [410fd030]
 [    0.000000] setup_arch: Dafna 1
 [    0.000000] setup_arch: Dafna after setup_machine_fdt
@@ -14,6 +15,7 @@
 [    0.000000] Reserved memory: OVERLAP DETECTED!
 [    0.000000] modem_adsp_region@86800000 (0x0000000086800000--0x000000008b000000) overlaps with wcnss@89300000 (0x0000000089300000--0x00000000899000)
 [    0.000000] cma: Reserved 64 MiB at 0x00000000bc000000
+[    0.000000] setup_arch: Dafna after arm64_memblock_init
 [    0.000000] bootmem_init: Dafna
 [    0.000000] min pfn = 0x80000 , max pfn = 0xc0000 bootmem_init: Dafna
 [    0.000000] sparse_init: Dafna
@@ -32,10 +34,11 @@
 [    0.000000] log_buf_len total cpu_extra contributions: 12288 bytes
 [    0.000000] log_buf_len min size: 16384 bytes
 [    0.000000] log_buf_len: 32768 bytes
-[    0.000000] early log buf free: 13728(83%)
+[    0.000000] early log buf free: 13616(83%)
 [    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
 [    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
 [    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.000000] start_kernel before mm_init: (in init/main.c) Dafna
 [    0.000000] software IO TLB [mem 0xb6c00000-0xbac00000] (64MB) mapped at [ffffffc036c00000-ffffffc03abfffff]
 [    0.000000] Memory: 779192K/951296K available (9940K kernel code, 1295K rwdata, 4164K rodata, 1000K init, 600K bss, 106568K reserved, 65536K cma-r)
 [    0.000000] Dafna: Virtual kernel memory layout:
@@ -50,6 +53,7 @@
 [    0.000000]       .text : 0xffffffc000080000 - 0xffffffc000e483e4   ( 14113 KB)
 [    0.000000]       .data : 0xffffffc000f59000 - 0xffffffc00109cc00   (  1295 KB)
 [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] start_kernel after mm_init: (in init/main.c) Dafna
 [    0.000000] Preemptible hierarchical RCU implementation.
 [    0.000000]  Build-time adjustment of leaf fanout to 64.
 [    0.000000]  RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.
@@ -72,64 +76,888 @@
 [    0.000000] Architected cp15 and mmio timer(s) running at 19.20MHz (virt/virt).
 [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
 [    0.000005] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
-[    0.000485] Console: colour dummy device 80x25
-[    0.000507] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
-[    0.000519] pid_max: default: 32768 minimum: 301
-[    0.000598] Security Framework initialized
-[    0.000761] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
-[    0.000773] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
-[    0.001384] Initializing cgroup subsys io
-[    0.001403] Initializing cgroup subsys memory
-[    0.001430] Initializing cgroup subsys devices
-[    0.001442] Initializing cgroup subsys freezer
-[    0.001454] Initializing cgroup subsys net_cls
-[    0.001466] Initializing cgroup subsys perf_event
-[    0.001478] Initializing cgroup subsys net_prio
-[    0.001493] Initializing cgroup subsys hugetlb
-[    0.001503] Initializing cgroup subsys pids
-[    0.001548] ftrace: allocating 33798 entries in 133 pages
-[    0.074311] EFI services will not be available.
-[    0.074338] ASID allocator initialised with 65536 entries
-[    0.114937] Detected VIPT I-cache on CPU1
-[    0.114983] CPU1: Booted secondary processor [410fd030]
-[    0.126953] Detected VIPT I-cache on CPU2
-[    0.126989] CPU2: Booted secondary processor [410fd030]
-[    0.138981] Detected VIPT I-cache on CPU3
-[    0.139015] CPU3: Booted secondary processor [410fd030]
-[    0.139078] Brought up 4 CPUs
-[    0.139108] SMP: Total of 4 processors activated.
-[    0.139119] CPU: All CPU(s) started at EL1
-[    0.139147] alternatives: patching kernel code
-[    0.139809] devtmpfs: initialized
-[    0.161268] DMI not present or invalid.
-[    0.161592] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
-[    0.164325] pinctrl core: initialized pinctrl subsystem
-[    0.164701] bus: 'platform': really_probe: probing driver reg-dummy with device reg-dummy
-[    0.164742] in platform_drv_probe , calling drv->probe with dev ffffffc0368df000 and drv ffffffc000fd53e8
-[    0.164907] bus: 'platform': really_probe: bound device reg-dummy to driver reg-dummy
-[    0.166092] NET: Registered protocol family 16
-[    0.182893] cpuidle: using governor ladder
-[    0.198913] cpuidle: using governor menu
-[    0.199263] vdso: 2 pages (1 code @ ffffffc000f61000, 1 data @ ffffffc000f60000)
-[    0.199300] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
-[    0.200255] DMA: preallocated 256 KiB pool for atomic allocations
-[    0.200472] Serial: AMBA PL011 UART driver
-[    0.203159] bus: 'platform': really_probe: probing driver msm8916-pinctrl with device 1000000.pinctrl
-[    0.203208] in platform_drv_probe , calling drv->probe with dev ffffffc035d26800 and drv ffffffc000fcc230
-[    0.204273] bus: 'platform': really_probe: bound device 1000000.pinctrl to driver msm8916-pinctrl
-[    0.204421] bus: 'platform': really_probe: probing driver gcc-msm8916 with device 1800000.qcom,gcc
-[    0.204462] in platform_drv_probe , calling drv->probe with dev ffffffc035d27400 and drv ffffffc00100f6d8
-[    0.208022] bus: 'platform': really_probe: bound device 1800000.qcom,gcc to driver gcc-msm8916
-[    0.208343] bus: 'platform': really_probe: probing driver qcom_hwspinlock with device soc:hwlock
-[    0.208383] in platform_drv_probe , calling drv->probe with dev ffffffc0368dc400 and drv ffffffc001025408
-[    0.208492] bus: 'platform': really_probe: bound device soc:hwlock to driver qcom_hwspinlock
-[    0.209198] bus: 'platform': really_probe: probing driver qcom-a53 with device b016000.qcom,a53cc
-[    0.209236] in platform_drv_probe , calling drv->probe with dev ffffffc035e21400 and drv ffffffc0010150b8
-[    0.209470] bus: 'platform': really_probe: bound device b016000.qcom,a53cc to driver qcom-a53
-[    0.215634] irq: no irq domain found for /hexagon-smp2p/slave-kernel !
-[    0.216500] irq: no irq domain found for /wcnss-smp2p/slave-kernel !
-[    0.220416] irq: no irq domain found for /soc/qcom,mdss_mdp@1a00000 !
-[    0.221327] bus: 'platform': really_probe: probing driver qcom-smem with device smem
-[    0.221371] in platform_drv_probe , calling drv->probe with dev ffffffc035f02c00 and drv ffffffc000fd2e98
-[    0.221514] bus: 'platform': really_probe: bound device smem to driver qcom-smem
-[    0.221646] bus: 'platform': really_probe: probing driver
+[    0.000487] Console: colour dummy device 80x25
+[    0.000509] start_kernel: after setup_per_cpu_pageset (in init/main.c) Dafna
+[    0.000517] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
+[    0.000528] pid_max: default: 32768 minimum: 301
+[    0.000607] Security Framework initialized
+[    0.000767] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.000779] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.001388] Initializing cgroup subsys io
+[    0.001406] Initializing cgroup subsys memory
+[    0.001434] Initializing cgroup subsys devices
+[    0.001448] Initializing cgroup subsys freezer
+[    0.001460] Initializing cgroup subsys net_cls
+[    0.001472] Initializing cgroup subsys perf_event
+[    0.001484] Initializing cgroup subsys net_prio
+[    0.001502] Initializing cgroup subsys hugetlb
+[    0.001512] Initializing cgroup subsys pids
+[    0.001557] ftrace: allocating 33798 entries in 133 pages
+[    0.074366] EFI services will not be available.
+[    0.074394] ASID allocator initialised with 65536 entries
+[    0.114973] Detected VIPT I-cache on CPU1
+[    0.115019] CPU1: Booted secondary processor [410fd030]
+[    0.126989] Detected VIPT I-cache on CPU2
+[    0.127027] CPU2: Booted secondary processor [410fd030]
+[    0.139014] Detected VIPT I-cache on CPU3
+[    0.139048] CPU3: Booted secondary processor [410fd030]
+[    0.139112] Brought up 4 CPUs
+[    0.139141] SMP: Total of 4 processors activated.
+[    0.139153] CPU: All CPU(s) started at EL1
+[    0.139180] alternatives: patching kernel code
+[    0.139839] devtmpfs: initialized
+[    0.161336] DMI not present or invalid.
+[    0.161656] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.164393] pinctrl core: initialized pinctrl subsystem
+[    0.164793] bus: 'platform': really_probe: probing driver reg-dummy with device reg-dummy
+[    0.164839] in platform_drv_probe , calling drv->probe with dev ffffffc0368df000 and drv ffffffc000fd53e8
+[    0.165007] bus: 'platform': really_probe: bound device reg-dummy to driver reg-dummy
+[    0.166181] NET: Registered protocol family 16
+[    0.182580] cpuidle: using governor ladder
+[    0.202610] cpuidle: using governor menu
+[    0.202955] vdso: 2 pages (1 code @ ffffffc000f61000, 1 data @ ffffffc000f60000)
+[    0.202991] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.203954] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.204171] Serial: AMBA PL011 UART driver
+[    0.206855] bus: 'platform': really_probe: probing driver msm8916-pinctrl with device 1000000.pinctrl
+[    0.206904] in platform_drv_probe , calling drv->probe with dev ffffffc036316800 and drv ffffffc000fcc230
+[    0.207969] bus: 'platform': really_probe: bound device 1000000.pinctrl to driver msm8916-pinctrl
+[    0.208116] bus: 'platform': really_probe: probing driver gcc-msm8916 with device 1800000.qcom,gcc
+[    0.208155] in platform_drv_probe , calling drv->probe with dev ffffffc036317400 and drv ffffffc00100f6d8
+[    0.211715] bus: 'platform': really_probe: bound device 1800000.qcom,gcc to driver gcc-msm8916
+[    0.212036] bus: 'platform': really_probe: probing driver qcom_hwspinlock with device soc:hwlock
+[    0.212077] in platform_drv_probe , calling drv->probe with dev ffffffc0368dc400 and drv ffffffc001025408
+[    0.212189] bus: 'platform': really_probe: bound device soc:hwlock to driver qcom_hwspinlock
+[    0.212899] bus: 'platform': really_probe: probing driver qcom-a53 with device b016000.qcom,a53cc
+[    0.212937] in platform_drv_probe , calling drv->probe with dev ffffffc035e3d400 and drv ffffffc0010150b8
+[    0.213175] bus: 'platform': really_probe: bound device b016000.qcom,a53cc to driver qcom-a53
+[    0.219324] irq: no irq domain found for /hexagon-smp2p/slave-kernel !
+[    0.220177] irq: no irq domain found for /wcnss-smp2p/slave-kernel !
+[    0.224089] irq: no irq domain found for /soc/qcom,mdss_mdp@1a00000 !
+[    0.224999] bus: 'platform': really_probe: probing driver qcom-smem with device smem
+[    0.225044] in platform_drv_probe , calling drv->probe with dev ffffffc035f3ac00 and drv ffffffc000fd2e98
+[    0.225186] bus: 'platform': really_probe: bound device smem to driver qcom-smem
+[    0.225317] bus: 'platform': really_probe: probing driver qcom-smd with device smd
+[    0.225352] in platform_drv_probe , calling drv->probe with dev ffffffc035f3b000 and drv ffffffc000fd2d48
+[    0.225739] bus: 'qcom_smd': really_probe: probing driver qcom_smd_rpm with device rpm.rpm_requests
+[    0.225913] bus: 'platform': really_probe: probing driver qcom-clk-smd-rpm with device smd:rpm:rpm_requests:qcom,rpmcc
+[    0.225952] in platform_drv_probe , calling drv->probe with dev ffffffc035f88000 and drv ffffffc0010152f0
+[    0.226186] bus: 'platform': really_probe: bound device smd to driver qcom-smd
+[    0.232846] bus: 'platform': really_probe: bound device smd:rpm:rpm_requests:qcom,rpmcc to driver qcom-clk-smd-rpm
+[    0.233204] bus: 'qcom_smd': really_probe: bound device rpm.rpm_requests to driver qcom_smd_rpm
+[    0.256587] msm_bus_fabric_init_driver
+[    0.256689] bus: 'platform': really_probe: probing driver msm_bus_device with device 580000.ad-hoc-bus
+[    0.256737] in platform_drv_probe , calling drv->probe with dev ffffffc035f38400 and drv ffffffc000fd34f8
+[    0.256809] msm_bus_device 580000.ad-hoc-bus: Dev 1024
+[    0.256827] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.256838] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.257072] msm_bus_device 580000.ad-hoc-bus: Dev 0
+[    0.257090] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.257100] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.257251] msm_bus_device 580000.ad-hoc-bus: Dev 4096
+[    0.257268] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.257278] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.263856] msm_bus_init_clk: Valid node clk node 1024 ctx 0
+[    0.263865] msm_bus_init_clk: Valid node clk node 1024 ctx 1msm_bus_init_clk: Valid node clk node 0 ctx 0
+[    0.263969] msm_bus_init_clk: Valid node clk node 0 ctx 1msm_bus_init_clk: Valid node clk node 4096 ctx 0
+[    0.264065] msm_bus_init_clk: Valid node clk node 4096 ctx 1[    0.278161] bus: 'platform': really_probe: bound device 580000.ad-hoc-bus to drivere
+[    0.287060] bus: 'platform': really_probe: probing driver msm_bus_rules_device with device soc:static-rules
+[    0.288569] in platform_drv_probe , calling drv->probe with dev ffffffc035f38800 and drv ffffffc000fd35a8
+[    0.297464] bus: 'platform': really_probe: bound device soc:static-rules to driver msm_bus_rules_device
+[    0.302045] bus: 'platform': really_probe: probing driver reg-fixed-voltage with device soc:fixedregulator@0
+[    0.302845] in platform_drv_probe , calling drv->probe with dev ffffffc035f3a000 and drv ffffffc000fd5498
+[    0.307509] bus: 'platform': really_probe: bound device soc:fixedregulator@0 to driver reg-fixed-voltage
+[    0.307671] bus: 'platform': really_probe: probing driver reg-fixed-voltage with device soc:fixedregulator@1
+[    0.308411] in platform_drv_probe , calling drv->probe with dev ffffffc035f3a400 and drv ffffffc000fd5498
+[    0.311927] bus: 'platform': really_probe: bound device soc:fixedregulator@1 to driver reg-fixed-voltage
+[    0.312059] bus: 'platform': really_probe: probing driver reg-fixed-voltage with device soc:fixedregulator@2
+[    0.312643] in platform_drv_probe , calling drv->probe with dev ffffffc035f3a800 and drv ffffffc000fd5498
+[    0.315455] bus: 'platform': really_probe: bound device soc:fixedregulator@2 to driver reg-fixed-voltage
+[    0.320457] bus: 'platform': really_probe: probing driver qcom_rpm_smd_regulator with device smd:rpm:rpm_requests:pm8916-regulators
+[    0.321059] in platform_drv_probe , calling drv->probe with dev ffffffc035f8ac00 and drv ffffffc000fd58b0
+[    0.386149] bus: 'platform': really_probe: bound device smd:rpm:rpm_requests:pm8916-regulators to driver qcom_rpm_smd_regulator
+[    0.391586] bus: 'platform': really_probe: probing driver msm_iommu with device 1f00000.qcom,iommu
+[    0.392458] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5400 and drv ffffffc000fe2ac8
+[    0.392811] bus: 'platform': really_probe: probing driver msm_iommu with device 1e00000.qcom,iommu
+[    0.393367] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5800 and drv ffffffc000fe2ac8
+[    0.401415] vgaarb: loaded
+[    0.408280] SCSI subsystem initialized
+[    0.446747] usbcore: registered new interface driver usbfs
+[    0.448441] usbcore: registered new interface driver hub
+[    0.450465] usbcore: registered new device driver usb
+[    0.454640] media: Linux media interface: v0.10
+[    0.455971] Linux video capture interface: v2.00
+[    0.462648] dmi: Firmware registration failed.
+[    0.467224] Advanced Linux Sound Architecture Driver Initialized.
+[    0.482560] Bluetooth: Core ver 2.21
+[    0.483294] NET: Registered protocol family 31
+[    0.483336] Bluetooth: HCI device and connection manager initialized
+[    0.483727] Bluetooth: HCI socket layer initialized
+[    0.483899] Bluetooth: L2CAP socket layer initialized
+[    0.484342] Bluetooth: SCO socket layer initialized
+[    0.501779] clocksource: Switched to clocksource arch_sys_counter
+[    1.192224] NET: Registered protocol family 2
+[    1.202545] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    1.204849] TCP bind hash table entries: 8192 (order: 5, 131072 bytes)
+[    1.211940] TCP: Hash tables configured (established 8192 bind 8192)
+[    1.218147] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    1.218540] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    1.223052] NET: Registered protocol family 1
+[    1.230129] RPC: Registered named UNIX socket transport module.
+[    1.230174] RPC: Registered udp transport module.
+[    1.230188] RPC: Registered tcp transport module.
+[    1.230212] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    1.233845] Unpacking initramfs...
+[    2.214362] Freeing initrd memory: 3624K (ffffffc002000000 - ffffffc00238a000)
+[    2.218126] bus: 'platform': really_probe: probing driver armv8-pmu with device cpu-pmu
+[    2.219704] in platform_drv_probe , calling drv->probe with dev ffffffc036314000 and drv ffffffc000f6efe8
+[    2.223597] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    2.224268] bus: 'platform': really_probe: bound device cpu-pmu to driver armv8-pmu
+[    2.229191] kvm [1]: HYP mode not available
+[    2.254671] bus: 'platform': really_probe: probing driver alarmtimer with device alarmtimer
+[    2.255514] bus: 'platform': really_probe: bound device alarmtimer to driver alarmtimer
+[    2.266677] futex hash table entries: 1024 (order: 5, 131072 bytes)
+[    2.271705] audit: initializing netlink subsys (disabled)
+[    2.273863] audit: type=2000 audit(2.215:1): initialized
+[    2.290922] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+[    2.498744] VFS: Disk quotas dquot_6.6.0
+[    2.502706] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    2.563522] NFS: Registering the id_resolver key type
+[    2.564242] Key type id_resolver registered
+[    2.564266] Key type id_legacy registered
+[    2.568818] fuse init (API version 7.23)
+[    2.580684] 9p: Installing v9fs 9p2000 file system support
+[    2.607017] io scheduler noop registered
+[    2.612238] io scheduler cfq registered (default)
+[    2.644887] bus: 'platform': really_probe: probing driver bam-dma-engine with device 7884000.dma
+[    2.646492] in platform_drv_probe , calling drv->probe with dev ffffffc035e3e400 and drv ffffffc000fd29f0
+[    2.682191] bus: 'platform': really_probe: bound device 7884000.dma to driver bam-dma-engine
+[    2.693254] bus: 'platform': really_probe: probing driver qcom_smp2p with device hexagon-smp2p
+[    2.694395] in platform_drv_probe , calling drv->probe with dev ffffffc035f88400 and drv ffffffc000fd2f80
+[    2.700578] bus: 'platform': really_probe: bound device hexagon-smp2p to driver qcom_smp2p
+[    2.700738] bus: 'platform': really_probe: probing driver qcom_smp2p with device wcnss-smp2p
+[    2.701411] in platform_drv_probe , calling drv->probe with dev ffffffc035f88800 and drv ffffffc000fd2f80
+[    2.704606] bus: 'platform': really_probe: bound device wcnss-smp2p to driver qcom_smp2p
+[    2.707213] bus: 'platform': really_probe: probing driver qcom-smsm with device smsm
+[    2.707718] in platform_drv_probe , calling drv->probe with dev ffffffc035f88c00 and drv ffffffc000fd3128
+[    2.712863] bus: 'platform': really_probe: bound device smsm to driver qcom-smsm
+[    2.716762] bus: 'platform': really_probe: probing driver rpm-msm-bus with device smd:rpm:rpm_requests:msm-bus
+[    2.717318] in platform_drv_probe , calling drv->probe with dev ffffffc035f8a800 and drv ffffffc000fd3448
+[    2.717359] bus: 'platform': really_probe: bound device smd:rpm:rpm_requests:msm-bus to driver rpm-msm-bus
+[    2.791557] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    2.813904] bus: 'platform': really_probe: probing driver serial8250 with device serial8250
+[    2.814736] in platform_drv_probe , calling drv->probe with dev ffffffc034ea3400 and drv ffffffc000fdb130
+[    2.814821] bus: 'platform': really_probe: bound device serial8250 to driver serial8250
+[    2.824363] msm_serial_init: called ffffffc000fe0720
+[    2.825541] bus: 'platform': really_probe: probing driver msm_serial with device 78af000.serial
+[    2.828213] in platform_drv_probe , calling drv->probe with dev ffffffc035e3cc00 and drv ffffffc000fe0000
+[    2.828393] msm_serial 78af000.serial: msm_serial: 1
+[    2.828405] msm_serial 78af000.serial: msm_serial: detected port #1
+[    2.831909] msm_serial 78af000.serial: uartclk = 3686400, is_uartdm = 4
+[    2.832588] msm_serial 78af000.serial: mapbase = 0x78af000, irq = 137
+[    2.833147] 78af000.serial: ttyMSM1 at MMIO 0x78af000 (irq = 137, base_baud = 230400) is a MSM
+[    2.838644] bus: 'platform': really_probe: bound device 78af000.serial to driver msm_serial
+[    2.838926] bus: 'platform': really_probe: probing driver msm_serial with device 78b0000.serial
+[    2.840530] in platform_drv_probe , calling drv->probe with dev ffffffc035e3e000 and drv ffffffc000fe0000
+[    2.840604] msm_serial 78b0000.serial: msm_serial: 1
+[    2.840624] msm_serial 78b0000.serial: msm_serial: detected port #0
+[    2.841790] msm_serial 78b0000.serial: uartclk = 3686400, is_uartdm = 4
+[    2.842098] msm_serial 78b0000.serial: mapbase = 0x78b0000, irq = 138
+[    2.842415] 78b0000.serial: ttyMSM0 at MMIO 0x78b0000 (irq = 138, base_baud = 230400) is a MSM
+[    2.842590] msm_serial: console setup on port #0
+[    4.651157] console [ttyMSM0] enabled
+[    4.660818] bus: 'platform': really_probe: bound device 78b0000.serial to driver msm_serial
+[    4.663897] msm_serial_init: driver initialized
+[    4.678724] [drm] Initialized drm 1.1.0 20060810
+[    4.680272] bus: 'platform': really_probe: probing driver msm_dsi_phy with device 1a98300.qcom,mdss_dsi_phy
+[    4.685401] in platform_drv_probe , calling drv->probe with dev ffffffc035f39800 and drv ffffffc000fe4758
+[    4.697322] l6: supplied by s4
+[    4.709885] bus: 'platform': really_probe: bound device 1a98300.qcom,mdss_dsi_phy to driver msm_dsi_phy
+[    4.713279] bus: 'platform': really_probe: probing driver msm_dsi with device 1a98000.qcom,mdss_dsi
+[    4.719117] in platform_drv_probe , calling drv->probe with dev ffffffc035f39400 and drv ffffffc000fe4670
+[    4.727339] bus: 'platform': really_probe: bound device 1a98000.qcom,mdss_dsi to driver msm_dsi
+[    4.742017] bus: 'platform': really_probe: probing driver adreno with device 1c00000.qcom,adreno-3xx
+[    4.747513] in platform_drv_probe , calling drv->probe with dev ffffffc035f38c00 and drv ffffffc000fe3908
+[    4.755158] bus: 'platform': really_probe: bound device 1c00000.qcom,adreno-3xx to driver adreno
+[    4.765931] bus: 'platform': really_probe: probing driver msm with device 1a00000.qcom,mdss_mdp
+[    4.774253] in platform_drv_probe , calling drv->probe with dev ffffffc035f39000 and drv ffffffc000fe4218
+[    4.806051] 1a98000.qcom,mdss_dsi supply gdsc not found, using dummy regulator
+[    4.807931] 1a98000.qcom,mdss_dsi supply gdsc not found, using dummy regulator
+[    4.816058] l2: supplied by s3
+[    4.823657] msm_dsi_manager_register: failed to register mipi dsi host for DSI 0
+[    4.825962] msm 1a00000.qcom,mdss_mdp: failed to bind 1a98000.qcom,mdss_dsi (ops dsi_ops): -517
+[    4.839149] msm 1a00000.qcom,mdss_mdp: master bind failed: -517
+[    5.006501] loop: module loaded
+[    5.028415] bus: 'platform': really_probe: probing driver spi_qup with device 78b7000.spi
+[    5.032564] in platform_drv_probe , calling drv->probe with dev ffffffc035e3e800 and drv ffffffc000ff1ae8
+[    5.049936] spi_qup 78b7000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+[    5.058582] bus: 'platform': really_probe: bound device 78b7000.spi to driver spi_qup
+[    5.059317] bus: 'platform': really_probe: probing driver spi_qup with device 78b9000.spi
+[    5.067988] in platform_drv_probe , calling drv->probe with dev ffffffc035e3ec00 and drv ffffffc000ff1ae8
+[    5.080341] spi_qup 78b9000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+[    5.090455] bus: 'platform': really_probe: bound device 78b9000.spi to driver spi_qup
+[    5.095725] bus: 'platform': really_probe: probing driver spmi_pmic_arb with device 200f000.spmi
+[    5.098999] in platform_drv_probe , calling drv->probe with dev ffffffc035e85800 and drv ffffffc000ff2200
+[    5.108561] spmi spmi-0: PMIC Arb Version-2 (0x20010000)
+[    5.127228] bus: 'spmi': really_probe: probing driver pmic-spmi with device 0-00
+[    5.146078] bus: 'platform': really_probe: probing driver qcom-spmi-gpio with device 200f000.spmi:pm8916@0:gpios@c000
+[    5.146883] in platform_drv_probe , calling drv->probe with dev ffffffc035ae1c00 and drv ffffffc000fcd5f0
+[    5.160049] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@0:gpios@c000 to driver qcom-spmi-gpio
+[    5.168327] bus: 'platform': really_probe: probing driver qcom-spmi-mpp with device 200f000.spmi:pm8916@0:mpps@a000
+[    5.177763] in platform_drv_probe , calling drv->probe with dev ffffffc035ae2400 and drv ffffffc000fcd6a0
+[    5.191055] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@0:mpps@a000 to driver qcom-spmi-mpp
+[    5.203249] bus: 'spmi': really_probe: bound device 0-00 to driver pmic-spmi
+[    5.207128] bus: 'spmi': really_probe: probing driver pmic-spmi with device 0-01
+[    5.215966] bus: 'platform': really_probe: probing driver qcom-spmi-regulator with device 200f000.spmi:pm8916@1:regulators
+[    5.220827] in platform_drv_probe , calling drv->probe with dev ffffffc035ae3c00 and drv ffffffc000fd5aa0
+[    5.296552] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@1:regulators to driver qcom-spmi-regulator
+[    5.309997] bus: 'spmi': really_probe: bound device 0-01 to driver pmic-spmi
+[    5.310411] bus: 'platform': really_probe: bound device 200f000.spmi to driver spmi_pmic_arb
+[    5.320160] tun: Universal TUN/TAP device driver, 1.6
+[    5.324761] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    5.338576] sky2: driver version 1.30
+[    5.345179] usbcore: registered new interface driver asix
+[    5.346907] usbcore: registered new interface driver ax88179_178a
+[    5.350839] usbcore: registered new interface driver cdc_ether
+[    5.356651] usbcore: registered new interface driver dm9601
+[    5.362231] usbcore: registered new interface driver net1080
+[    5.367665] usbcore: registered new interface driver plusb
+[    5.373580] usbcore: registered new interface driver cdc_subset
+[    5.378891] usbcore: registered new interface driver zaurus
+[    5.385374] usbcore: registered new interface driver cdc_ncm
+[    5.390587] bus: 'platform': really_probe: probing driver msm_otg with device 78d9000.phy
+[    5.399386] in platform_drv_probe , calling drv->probe with dev ffffffc035e84c00 and drv ffffffc000ff5160
+[    5.426774] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    5.427116] ehci-pci: EHCI PCI platform driver
+[    5.433553] ehci-platform: EHCI generic platform driver
+[    5.439013] ehci-msm: Qualcomm On-Chip EHCI Host Controller
+[    5.442447] bus: 'platform': really_probe: probing driver msm_hsusb_host with device 78d9000.ehci
+[    5.448438] in platform_drv_probe , calling drv->probe with dev ffffffc035e84800 and drv ffffffc000ff56b0
+[    5.458934] msm_hsusb_host 78d9000.ehci: unable to find transceiver
+[    5.467602] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    5.472356] ohci-pci: OHCI PCI platform driver
+[    5.479366] ohci-platform: OHCI generic platform driver
+[    5.485989] usbcore: registered new interface driver cdc_acm
+[    5.487881] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    5.495113] usbcore: registered new interface driver usblp
+[    5.502270] usbcore: registered new interface driver cdc_wdm
+[    5.507844] usbcore: registered new interface driver uas
+[    5.513926] usbcore: registered new interface driver usb-storage
+[    5.520614] usbcore: registered new interface driver usbserial
+[    5.524792] usbcore: registered new interface driver usbserial_generic
+[    5.530442] usbserial: USB Serial support registered for generic
+[    5.538711] bus: 'platform': really_probe: probing driver usb3503 with device usb2513
+[    5.543371] in platform_drv_probe , calling drv->probe with dev ffffffc035f89000 and drv ffffffc000ffbdf0
+[    5.562636] usb3503 usb2513: switched to HUB mode
+[    5.562737] usb3503 usb2513: usb3503_probe: probed in hub mode
+[    5.566546] bus: 'platform': really_probe: bound device usb2513 to driver usb3503
+[    5.576032] bus: 'platform': really_probe: probing driver msm_hsusb with device 78d9000.usb
+[    5.580342] in platform_drv_probe , calling drv->probe with dev ffffffc035e84400 and drv ffffffc000ffc0d0
+[    5.593249] usbip_core: USB/IP Core v1.0.0
+[    5.598739] usbcore: registered new device driver usbip-host
+[    5.601753] usbip_host: USB/IP Host Driver v1.0.0
+[    5.615202] mousedev: PS/2 mouse device common for all mice
+[    5.623645] bus: 'platform': really_probe: probing driver pm8941-pwrkey with device 200f000.spmi:pm8916@0:pwrkey@800
+[    5.624756] in platform_drv_probe , calling drv->probe with dev ffffffc035ae1800 and drv ffffffc000ffe040
+[    5.641793] input: pm8941_pwrkey as /devices/platform/soc/200f000.spmi/spmi-0/0-00/200f000.spmi:pm8916@0:pwrkey@800/input/input0
+[    5.646669] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@0:pwrkey@800 to driver pm8941-pwrkey
+[    5.659856] bus: 'platform': really_probe: probing driver rtc-pm8xxx with device 200f000.spmi:pm8916@0:rtc@6000
+[    5.665686] in platform_drv_probe , calling drv->probe with dev ffffffc035ae1400 and drv ffffffc000ffe600
+[    5.680183] rtc-pm8xxx 200f000.spmi:pm8916@0:rtc@6000: rtc core: registered pm8xxx_rtc as rtc0
+[    5.685299] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@0:rtc@6000 to driver rtc-pm8xxx
+[    5.695762] i2c /dev entries driver
+[    5.705942] bus: 'platform': really_probe: probing driver i2c_qup with device 78b6000.i2c
+[    5.709026] in platform_drv_probe , calling drv->probe with dev ffffffc035e3f000 and drv ffffffc000fff910
+[    5.714406] i2c_qup 78b6000.i2c: 
+[    5.714406]  tx channel not available
+[    5.735403] bus: 'platform': really_probe: bound device 78b6000.i2c to driver i2c_qup
+[    5.735674] bus: 'platform': really_probe: probing driver i2c_qup with device 78b8000.i2c
+[    5.744373] in platform_drv_probe , calling drv->probe with dev ffffffc035e3f400 and drv ffffffc000fff910
+[    5.750795] i2c_qup 78b8000.i2c: 
+[    5.750795]  tx channel not available
+[    5.770326] bus: 'i2c': really_probe: probing driver adv7511 with device 3-0039
+[    5.797789] bus: 'i2c': really_probe: probing driver dummy with device 3-003f
+[    5.798842] bus: 'i2c': really_probe: bound device 3-003f to driver dummy
+[    5.805648] bus: 'i2c': really_probe: probing driver dummy with device 3-003c
+[    5.811251] bus: 'i2c': really_probe: bound device 3-003c to driver dummy
+[    5.825721] bus: 'i2c': really_probe: bound device 3-0039 to driver adv7511
+[    5.826091] bus: 'platform': really_probe: bound device 78b8000.i2c to driver i2c_qup
+[    5.832106] bus: 'platform': really_probe: probing driver i2c_qup with device 78ba000.i2c
+[    5.841968] in platform_drv_probe , calling drv->probe with dev ffffffc035e3f800 and drv ffffffc000fff910
+[    5.848032] i2c_qup 78ba000.i2c: 
+[    5.848032]  tx channel not available
+[    5.867589] bus: 'platform': really_probe: bound device 78ba000.i2c to driver i2c_qup
+[    5.874869] bus: 'platform': really_probe: probing driver qcom-camss with device 1b0ac00.camss
+[    5.876958] in platform_drv_probe , calling drv->probe with dev ffffffc036315c00 and drv ffffffc001002998
+[    5.884045] qcom-camss 1b0ac00.camss: notifier->num_subdevs = 0
+[    5.897120] bus: 'platform': really_probe: probing driver msm_cci with device 1b0c000.qcom,cci
+[    5.901132] in platform_drv_probe , calling drv->probe with dev ffffffc036316400 and drv ffffffc0010037b0
+[    5.912626] msm_cci_init_gpio_params:1371 gpio count 0
+[    5.916939] bus: 'platform': really_probe: bound device 1b0c000.qcom,cci to driver msm_cci
+[    5.925665] bus: 'platform': really_probe: probing driver qcom-vidc with device 1d00000.qcom,vidc
+[    5.931715] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5000 and drv ffffffc0010038f8
+[    5.944102] bus: 'platform': really_probe: probing driver qcom-cpr with device b018000.cpr
+[    5.949286] in platform_drv_probe , calling drv->probe with dev ffffffc035e87400 and drv ffffffc001006ea0
+[    5.962566] l3: supplied by s3
+[    5.971982] CPR closed loop is enabled
+[    5.976147] CPR is enabled!
+[    5.981735] bus: 'platform': really_probe: bound device b018000.cpr to driver qcom-cpr
+[    5.985107] bus: 'platform': really_probe: probing driver msm-restart with device 4ab000.restart
+[    5.989705] in platform_drv_probe , calling drv->probe with dev ffffffc036315800 and drv ffffffc001007218
+[    5.997902] bus: 'platform': really_probe: bound device 4ab000.restart to driver msm-restart
+[    6.015932] bus: 'platform': really_probe: probing driver qcom-tsens with device 4a8000.thermal-sensor
+[    6.016736] in platform_drv_probe , calling drv->probe with dev ffffffc035e87c00 and drv ffffffc0010082e8
+[    6.027552] qcom-tsens 4a8000.thermal-sensor: tsens calibration failed
+[    6.036151] Bluetooth: HCI UART driver ver 2.3
+[    6.040853] Bluetooth: HCI UART protocol H4 registered
+[    6.045170] Bluetooth: HCI UART protocol BCSP registered
+[    6.050291] Bluetooth: HCI UART protocol Three-wire (H5) registered
+[    6.057387] usbcore: registered new interface driver btusb
+[    6.064415] bus: 'platform': really_probe: probing driver cpufreq-dt with device cpufreq-dt.0
+[    6.067923] in platform_drv_probe , calling drv->probe with dev ffffffc0348a4400 and drv ffffffc0010093f8
+[    6.081590] cpu: dev_pm_opp_of_cpumask_add_table: couldn't find opp table for cpu:0, -19
+[    6.101196] bus: 'platform': really_probe: bound device cpufreq-dt.0 to driver cpufreq-dt
+[    6.119022] sdhci: Secure Digital Host Controller Interface driver
+[    6.119435] sdhci: Copyright(c) Pierre Ossman
+[    6.125267] Synopsys Designware Multimedia Card Interface Driver
+[    6.136658] sdhci-pltfm: SDHCI platform and OF driver helper
+[    6.139210] bus: 'platform': really_probe: probing driver sdhci_msm with device 7824900.sdhci
+[    6.151914] in platform_drv_probe , calling drv->probe with dev ffffffc035e3fc00 and drv ffffffc00100afe8
+[    6.199082] l5: supplied by s4
+[    6.312012] mmc0: SDHCI controller on 7824900.sdhci [7824900.sdhci] using ADMA 64-bit
+[    6.312621] bus: 'platform': really_probe: bound device 7824900.sdhci to driver sdhci_msm
+[    6.319429] bus: 'platform': really_probe: probing driver sdhci_msm with device 7864900.sdhci
+[    6.333415] in platform_drv_probe , calling drv->probe with dev ffffffc035e84000 and drv ffffffc00100afe8
+[    6.339326] sdhci_msm 7864900.sdhci: Got CD GPIO
+[    6.477694] mmc0: MAN_BKOPS_EN bit is not set
+[    6.495423] mmc1: SDHCI controller on 7864900.sdhci [7864900.sdhci] using ADMA 64-bit
+[    6.496534] bus: 'platform': really_probe: bound device 7864900.sdhci to driver sdhci_msm
+[    6.516922] bus: 'platform': really_probe: probing driver leds-gpio with device soc:leds
+[    6.533996] in platform_drv_probe , calling drv->probe with dev ffffffc035f39c00 and drv ffffffc00100b1a8
+[    6.567684] bus: 'platform': really_probe: bound device soc:leds to driver leds-gpio
+[    6.591441] mmc0: new HS200 MMC card at address 0001
+[    6.597119] ledtrig-cpu: registered to indicate activity on CPUs
+[    6.600352] bus: 'mmc': really_probe: probing driver mmcblk with device mmc0:0001
+[    6.601029] bus: 'platform': really_probe: probing driver qcom_scm with device firmware:scm
+[    6.604041] in platform_drv_probe , calling drv->probe with dev ffffffc036315000 and drv ffffffc00100ba80
+[    6.614256] bus: 'platform': really_probe: bound device firmware:scm to driver qcom_scm
+[    6.641061] usbcore: registered new interface driver usbhid
+[    6.642081] usbhid: USB HID core driver
+[    6.656001] bus: 'platform': really_probe: probing driver qcom-q6v5-pil with device 4080000.hexagon
+[    6.661107] in platform_drv_probe , calling drv->probe with dev ffffffc035ec4000 and drv ffffffc001025580
+[    6.678251] mmcblk0: mmc0:0001 DS1008 7.28 GiB 
+[    6.710688] mmcblk0boot0: mmc0:0001 DS1008 partition 1 4.00 MiB
+[    6.725787] 4080000.hexagon supply cx not found, using dummy regulator
+[    6.735046] 4080000.hexagon supply mss not found, using dummy regulator
+[    6.737105] mmcblk0boot1: mmc0:0001 DS1008 partition 2 4.00 MiB
+[    6.739011] l7: supplied by s4
+[    6.764298]  remoteproc0: 4080000.hexagon is available
+[    6.764705]  remoteproc0: Note: remoteproc is still under development and considered experimental.
+[    6.768625]  remoteproc0: THE BINARY FORMAT IS NOT YET FINALIZED, and backward compatibility isn't yet guaranteed.
+[    6.775152] mmcblk0rpmb: mmc0:0001 DS1008 partition 3 4.00 MiB
+[    6.791481]  remoteproc0: Direct firmware load for mba.mbn failed with error -2
+[    6.793085] bus: 'platform': really_probe: bound device 4080000.hexagon to driver qcom-q6v5-pil
+[    6.807775] bus: 'platform': really_probe: probing driver qcom-tz-pil with device soc:vidc_tzpil@0
+[    6.814075] in platform_drv_probe , calling drv->probe with dev ffffffc035ec4c00 and drv ffffffc001025640
+[    6.820309] qcom-tz-pil soc:vidc_tzpil@0: no crash reason id
+[    6.838993] soc:vidc_tzpil@0 supply qcom,pll not found, using dummy regulator
+[    6.840397] qcom-tz-pil soc:vidc_tzpil@0: failed to read qcom,pll_uV, skipping
+[    6.845460] qcom-tz-pil soc:vidc_tzpil@0: failed to read qcom,pll_uA, skipping
+[    6.854055] qcom-tz-pil soc:vidc_tzpil@0: no wdog IRQ defined
+[    6.860729] qcom-tz-pil soc:vidc_tzpil@0: no fatal IRQ defined
+[    6.865548] qcom-tz-pil soc:vidc_tzpil@0: no ready IRQ defined
+[    6.871366] qcom-tz-pil soc:vidc_tzpil@0: no handover IRQ defined
+[    6.877047] qcom-tz-pil soc:vidc_tzpil@0: no stop-ack IRQ defined
+[    6.884228] qcom-tz-pil soc:vidc_tzpil@0: Found relocation area 8388608@0x000000008f800000
+[    6.891373]  remoteproc1: soc:vidc_tzpil@0 is available
+[    6.897726]  remoteproc1: Note: remoteproc is still under development and considered experimental.
+[    6.902800]  remoteproc1: THE BINARY FORMAT IS NOT YET FINALIZED, and backward compatibility isn't yet guaranteed.
+[    6.915672]  remoteproc1: Direct firmware load for venus.mdt failed with error -2
+[    6.922133]  remoteproc1: failed to load soc:vidc_tzpil@0
+[    6.927747] bus: 'platform': really_probe: bound device soc:vidc_tzpil@0 to driver qcom-tz-pil
+[    6.940519] bus: 'platform': really_probe: probing driver qcom-wcnss-pil with device a204000.wcnss
+[    6.951781] in platform_drv_probe , calling drv->probe with dev ffffffc035ec4400 and drv ffffffc001025700
+[    6.963619]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10
+[    6.973277] a204000.wcnss supply vddcx not found, using dummy regulator
+[    7.025422]  remoteproc2: a204000.wcnss is available
+[    7.025915]  remoteproc2: Note: remoteproc is still under development and considered experimental.
+[    7.030360]  remoteproc2: THE BINARY FORMAT IS NOT YET FINALIZED, and backward compatibility isn't yet guaranteed.
+[    7.042843]  remoteproc2: Direct firmware load for wcnss.mdt failed with error -2
+[    7.070540] bus: 'platform': really_probe: bound device a204000.wcnss to driver qcom-wcnss-pil
+[    7.088829] bus: 'platform': really_probe: probing driver qcom-iris with device a204000.wcnss:iris
+[    7.092706] in platform_drv_probe , calling drv->probe with dev ffffffc035a22c00 and drv ffffffc001025888
+[    7.181118] bus: 'platform': really_probe: bound device a204000.wcnss:iris to driver qcom-iris
+[    7.188804] bus: 'mmc': really_probe: bound device mmc0:0001 to driver mmcblk
+[    7.200008] bus: 'platform': really_probe: probing driver extcon-usb-gpio with device usb-id
+[    7.210172] in platform_drv_probe , calling drv->probe with dev ffffffc035f89400 and drv ffffffc001025b00
+[    7.236808] bus: 'platform': really_probe: bound device usb-id to driver extcon-usb-gpio
+[    7.242790] bus: 'amba': really_probe: probing driver coresight-tmc with device 825000.etf
+[    7.334925] coresight-tmc 825000.etf: TMC initialized
+[    7.335786] bus: 'amba': really_probe: bound device 825000.etf to driver coresight-tmc
+[    7.339835] bus: 'amba': really_probe: probing driver coresight-tmc with device 826000.etr
+[    7.492879] coresight-tmc 826000.etr: TMC initialized
+[    7.493661] bus: 'amba': really_probe: bound device 826000.etr to driver coresight-tmc
+[    7.501017] bus: 'amba': really_probe: probing driver coresight-tpiu with device 820000.tpiu
+[    7.543540] coresight-tpiu 820000.tpiu: TPIU initialized
+[    7.543892] bus: 'amba': really_probe: bound device 820000.tpiu to driver coresight-tpiu
+[    7.551482] bus: 'amba': really_probe: probing driver coresight-funnel with device 821000.funnel
+[    7.592699] coresight-funnel 821000.funnel: FUNNEL initialized
+[    7.593136] bus: 'amba': really_probe: bound device 821000.funnel to driver coresight-funnel
+[    7.597946] bus: 'amba': really_probe: probing driver coresight-funnel with device 841000.funnel
+[    7.636825] coresight-funnel 841000.funnel: FUNNEL initialized
+[    7.637264] bus: 'amba': really_probe: bound device 841000.funnel to driver coresight-funnel
+[    7.655551] bus: 'amba': really_probe: probing driver coresight-etm4x with device 85c000.etm
+[    7.689155] coresight-etm4x 85c000.etm: ETM 4.0 initialized
+[    7.689730] bus: 'amba': really_probe: bound device 85c000.etm to driver coresight-etm4x
+[    7.694298] bus: 'amba': really_probe: probing driver coresight-etm4x with device 85d000.etm
+[    7.734959] coresight-etm4x 85d000.etm: ETM 4.0 initialized
+[    7.735526] bus: 'amba': really_probe: bound device 85d000.etm to driver coresight-etm4x
+[    7.740047] bus: 'amba': really_probe: probing driver coresight-etm4x with device 85e000.etm
+[    7.778623] coresight-etm4x 85e000.etm: ETM 4.0 initialized
+[    7.779102] bus: 'amba': really_probe: bound device 85e000.etm to driver coresight-etm4x
+[    7.784902] bus: 'amba': really_probe: probing driver coresight-etm4x with device 85f000.etm
+[    7.819721] coresight-etm4x 85f000.etm: ETM 4.0 initialized
+[    7.820228] bus: 'amba': really_probe: bound device 85f000.etm to driver coresight-etm4x
+[    7.828182] bus: 'amba': really_probe: probing driver coresight-replicator-qcom with device 824000.replicator
+[    7.902776] coresight-replicator-qcom 824000.replicator: REPLICATOR 1.0 initialized
+[    7.903180] bus: 'amba': really_probe: bound device 824000.replicator to driver coresight-replicator-qcom
+[    7.916205] bus: 'platform': really_probe: probing driver qcom,qfprom with device 5c000.qfprom
+[    7.921111] in platform_drv_probe , calling drv->probe with dev ffffffc035e87800 and drv ffffffc0010278e8
+[    7.934462] bus: 'platform': really_probe: bound device 5c000.qfprom to driver qcom,qfprom
+[    7.958006] usbcore: registered new interface driver snd-usb-audio
+[    7.975997] bus: 'platform': really_probe: probing driver snd-soc-dummy with device snd-soc-dummy
+[    7.978049] in platform_drv_probe , calling drv->probe with dev ffffffc0348da400 and drv ffffffc00102e890
+[    7.984711] bus: 'platform': really_probe: bound device snd-soc-dummy to driver snd-soc-dummy
+[    8.004564] bus: 'platform': really_probe: probing driver msm8916-wcd-codec with device 200f000.spmi:pm8916@1:codec@f000
+[    8.007994] in platform_drv_probe , calling drv->probe with dev ffffffc034850000 and drv ffffffc00102e9b0
+[    8.034214] bus: 'platform': really_probe: bound device 200f000.spmi:pm8916@1:codec@f000 to driver msm8916-wcd-codec
+[    8.043339] bus: 'platform': really_probe: probing driver apq8016-lpass-cpu with device 7708000.lpass-cpu
+[    8.045965] in platform_drv_probe , calling drv->probe with dev ffffffc035e86400 and drv ffffffc00102fb18
+[    8.075273] apq8016-lpass-cpu 7708000.lpass-cpu: asoc_qcom_lpass_cpu_platform_probe() error getting mi2s-osr-clk: -2
+[    8.076233] apq8016-lpass-cpu 7708000.lpass-cpu: asoc_qcom_lpass_cpu_platform_probe() error getting mi2s-osr-clk: -2
+[    8.085330] apq8016-lpass-cpu 7708000.lpass-cpu: asoc_qcom_lpass_cpu_platform_probe() error getting mi2s-osr-clk: -2
+[    8.095921] apq8016-lpass-cpu 7708000.lpass-cpu: asoc_qcom_lpass_cpu_platform_probe() error getting mi2s-osr-clk: -2
+[    8.112842] bus: 'platform': really_probe: bound device 7708000.lpass-cpu to driver apq8016-lpass-cpu
+[    8.126498] bus: 'platform': really_probe: probing driver qcom-apq8016-sbc with device 7702000.sound
+[    8.135729] in platform_drv_probe , calling drv->probe with dev ffffffc035e86800 and drv ffffffc00102fed0
+[    8.164201] msm8916-wcd-codec 200f000.spmi:pm8916@1:codec@f000: PMIC REV: 1   CODEC Version: 1
+[    8.179928] qcom-apq8016-sbc 7702000.sound: adv7511 <-> Quatenary MI2S mapping ok
+[    8.189152] qcom-apq8016-sbc 7702000.sound: msm8916_wcd_i2s_rx1 <-> Primary MI2S mapping ok
+[    8.195101] qcom-apq8016-sbc 7702000.sound: msm8916_wcd_i2s_tx1 <-> Tertiary MI2S mapping ok
+[    8.294554] bus: 'platform': really_probe: bound device 7702000.sound to driver qcom-apq8016-sbc
+[    8.335636] NET: Registered protocol family 10
+[    8.369966] sit: IPv6 over IPv4 tunneling driver
+[    8.392588] NET: Registered protocol family 17
+[    8.408931] Bluetooth: RFCOMM TTY layer initialized
+[    8.409363] Bluetooth: RFCOMM socket layer initialized
+[    8.413525] Bluetooth: RFCOMM ver 1.11
+[    8.418867] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    8.422256] Bluetooth: HIDP socket layer initialized
+[    8.430436] 9pnet: Installing 9P2000 support
+[    8.435920] Key type dns_resolver registered
+[    8.439024] NET: Registered protocol family 42
+[    8.502813] registered taskstats version 1
+[    8.553543] bus: 'platform': really_probe: probing driver msm_iommu with device 1f00000.qcom,iommu
+[    8.558997] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5400 and drv ffffffc000fe2ac8
+[    8.564515] msm_iommu 1f00000.qcom,iommu: invalid resource
+[    8.577008] msm_iommu 1f00000.qcom,iommu: iface: 100000000, core: 800000000
+[    8.577356] msm_iommu 1f00000.qcom,iommu: device gfx_iommu (model: 500) mapped at ffffff8000b20000, with 2 ctx banks
+[    8.584497] msm_iommu 1f00000.qcom,iommu: iommu sec: pgtable size: 94208
+[    8.630437] genirq: Setting trigger mode 1 for irq 159 failed (gic_set_type+0x0/0x68)
+[    8.636678] msm_iommu 1f00000.qcom,iommu: Request Global CFG IRQ 159 failed with ret=-22
+[    8.645355] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1f09000.qcom,iommu-ctx
+[    8.648103] in platform_drv_probe , calling drv->probe with dev ffffffc034853800 and drv ffffffc000fe2a18
+[    8.674861] msm_iommu_ctx 1f09000.qcom,iommu-ctx: context gfx3d_user using bank 1
+[    8.675739] bus: 'platform': really_probe: bound device 1f09000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.689395] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1f0a000.qcom,iommu-ctx
+[    8.692915] in platform_drv_probe , calling drv->probe with dev ffffffc034853c00 and drv ffffffc000fe2a18
+[    8.714330] msm_iommu_ctx 1f0a000.qcom,iommu-ctx: context gfx3d_priv using bank 2
+[    8.714616] bus: 'platform': really_probe: bound device 1f0a000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.721236] bus: 'platform': really_probe: bound device 1f00000.qcom,iommu to driver msm_iommu
+[    8.731597] bus: 'platform': really_probe: probing driver msm_iommu with device 1e00000.qcom,iommu
+[    8.740573] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5800 and drv ffffffc000fe2ac8
+[    8.752402] msm_iommu 1e00000.qcom,iommu: iface: 100000000, core: 800000000
+[    8.758815] msm_iommu 1e00000.qcom,iommu: device apps_iommu (model: 500) mapped at ffffff8006400000, with 20 ctx banks
+[    8.777347] genirq: Setting trigger mode 1 for irq 159 failed (gic_set_type+0x0/0x68)
+[    8.783565] msm_iommu 1e00000.qcom,iommu: Request Global CFG IRQ 159 failed with ret=-22
+[    8.789809] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e22000.qcom,iommu-ctx
+[    8.793854] in platform_drv_probe , calling drv->probe with dev ffffffc034a8c400 and drv ffffffc000fe2a18
+[    8.819094] msm_iommu_ctx 1e22000.qcom,iommu-ctx: context jpeg_enc0 using bank 2
+[    8.819433] bus: 'platform': really_probe: bound device 1e22000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.831170] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e23000.qcom,iommu-ctx
+[    8.837219] in platform_drv_probe , calling drv->probe with dev ffffffc034a8c800 and drv ffffffc000fe2a18
+[    8.861095] msm_iommu_ctx 1e23000.qcom,iommu-ctx: context vfe using bank 3
+[    8.861579] bus: 'platform': really_probe: bound device 1e23000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.872377] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e24000.qcom,iommu-ctx
+[    8.878249] in platform_drv_probe , calling drv->probe with dev ffffffc034a8cc00 and drv ffffffc000fe2a18
+[    8.900001] msm_iommu_ctx 1e24000.qcom,iommu-ctx: context mdp_0 using bank 4
+[    8.900419] bus: 'platform': really_probe: bound device 1e24000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.909788] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e25000.venus_ns
+[    8.916386] in platform_drv_probe , calling drv->probe with dev ffffffc034a8d000 and drv ffffffc000fe2a18
+[    8.936620] msm_iommu_ctx 1e25000.venus_ns: context venus_ns using bank 5
+[    8.937129] bus: 'platform': really_probe: bound device 1e25000.venus_ns to driver msm_iommu_ctx
+[    8.950447] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e26000.qcom,iommu-ctx
+[    8.952663] in platform_drv_probe , calling drv->probe with dev ffffffc034ab4c00 and drv ffffffc000fe2a18
+[    8.973335] msm_iommu_ctx 1e26000.qcom,iommu-ctx: context cpp using bank 6
+[    8.974036] bus: 'platform': really_probe: bound device 1e26000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    8.985044] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e27000.qcom,iommu-ctx
+[    8.989916] in platform_drv_probe , calling drv->probe with dev ffffffc034ab5000 and drv ffffffc000fe2a18
+[    9.012971] msm_iommu_ctx 1e27000.qcom,iommu-ctx: context mDSP using bank 7
+[    9.013238] bus: 'platform': really_probe: bound device 1e27000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.022682] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e28000.qcom,iommu-ctx
+[    9.030033] in platform_drv_probe , calling drv->probe with dev ffffffc034ab5400 and drv ffffffc000fe2a18
+[    9.053330] msm_iommu_ctx 1e28000.qcom,iommu-ctx: context gss using bank 8
+[    9.053669] bus: 'platform': really_probe: bound device 1e28000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.063604] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e29000.qcom,iommu-ctx
+[    9.071071] in platform_drv_probe , calling drv->probe with dev ffffffc034ab5800 and drv ffffffc000fe2a18
+[    9.090668] msm_iommu_ctx 1e29000.qcom,iommu-ctx: context a2 using bank 9
+[    9.091135] bus: 'platform': really_probe: bound device 1e29000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.100727] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e32000.qcom,iommu-ctx
+[    9.107956] in platform_drv_probe , calling drv->probe with dev ffffffc034ab5c00 and drv ffffffc000fe2a18
+[    9.130592] msm_iommu_ctx 1e32000.qcom,iommu-ctx: context mdp_1 using bank 18
+[    9.131062] bus: 'platform': really_probe: bound device 1e32000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.141421] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e33000.venus_sec_pixel
+[    9.148368] in platform_drv_probe , calling drv->probe with dev ffffffc034ab6000 and drv ffffffc000fe2a18
+[    9.171654] msm_iommu_ctx 1e33000.venus_sec_pixel: context venus_sec_pixel using bank 19
+[    9.172243] bus: 'platform': really_probe: bound device 1e33000.venus_sec_pixel to driver msm_iommu_ctx
+[    9.182973] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e34000.venus_sec_bitstream
+[    9.189162] in platform_drv_probe , calling drv->probe with dev ffffffc0349c8800 and drv ffffffc000fe2a18
+[    9.211611] msm_iommu_ctx 1e34000.venus_sec_bitstream: context venus_sec_bitstream using bank 20
+[    9.211920] bus: 'platform': really_probe: bound device 1e34000.venus_sec_bitstream to driver msm_iommu_ctx
+[    9.224064] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e35000.venus_sec_non_pixel
+[    9.231337] in platform_drv_probe , calling drv->probe with dev ffffffc0349c8c00 and drv ffffffc000fe2a18
+[    9.251281] msm_iommu_ctx 1e35000.venus_sec_non_pixel: context venus_sec_non_pixel using bank 21
+[    9.251680] bus: 'platform': really_probe: bound device 1e35000.venus_sec_non_pixel to driver msm_iommu_ctx
+[    9.263078] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e36000.qcom,iommu-ctx
+[    9.270351] in platform_drv_probe , calling drv->probe with dev ffffffc0349c9000 and drv ffffffc000fe2a18
+[    9.291865] msm_iommu_ctx 1e36000.qcom,iommu-ctx: context venus_fw using bank 22
+[    9.292319] bus: 'platform': really_probe: bound device 1e36000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.303227] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e37000.qcom,iommu-ctx
+[    9.309948] in platform_drv_probe , calling drv->probe with dev ffffffc034b2c000 and drv ffffffc000fe2a18
+[    9.329875] msm_iommu_ctx 1e37000.qcom,iommu-ctx: context periph_rpm using bank 23
+[    9.330315] bus: 'platform': really_probe: bound device 1e37000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.340280] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e38000.qcom,iommu-ctx
+[    9.347399] in platform_drv_probe , calling drv->probe with dev ffffffc034b2c400 and drv ffffffc000fe2a18
+[    9.365105] msm_iommu_ctx 1e38000.qcom,iommu-ctx: context periph_CE using bank 24
+[    9.365376] bus: 'platform': really_probe: bound device 1e38000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.376816] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e39000.qcom,iommu-ctx
+[    9.384290] in platform_drv_probe , calling drv->probe with dev ffffffc034a8d400 and drv ffffffc000fe2a18
+[    9.408263] msm_iommu_ctx 1e39000.qcom,iommu-ctx: context periph_BLSP using bank 25
+[    9.408862] bus: 'platform': really_probe: bound device 1e39000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.419470] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e3a000.qcom,iommu-ctx
+[    9.425399] in platform_drv_probe , calling drv->probe with dev ffffffc034ab6400 and drv ffffffc000fe2a18
+[    9.449241] msm_iommu_ctx 1e3a000.qcom,iommu-ctx: context periph_SDC1 using bank 26
+[    9.449775] bus: 'platform': really_probe: bound device 1e3a000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.460814] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e3b000.qcom,iommu-ctx
+[    9.467026] in platform_drv_probe , calling drv->probe with dev ffffffc034ab6800 and drv ffffffc000fe2a18
+[    9.492832] msm_iommu_ctx 1e3b000.qcom,iommu-ctx: context periph_SDC2 using bank 27
+[    9.493300] bus: 'platform': really_probe: bound device 1e3b000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.503640] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e3c000.qcom,iommu-ctx
+[    9.510360] in platform_drv_probe , calling drv->probe with dev ffffffc0349c9400 and drv ffffffc000fe2a18
+[    9.531837] msm_iommu_ctx 1e3c000.qcom,iommu-ctx: context periph_audio using bank 28
+[    9.532172] bus: 'platform': really_probe: bound device 1e3c000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.543382] bus: 'platform': really_probe: probing driver msm_iommu_ctx with device 1e3d000.qcom,iommu-ctx
+[    9.549016] in platform_drv_probe , calling drv->probe with dev ffffffc0349c9800 and drv ffffffc000fe2a18
+[    9.572691] msm_iommu_ctx 1e3d000.qcom,iommu-ctx: context periph_USB_HS1 using bank 29
+[    9.573103] bus: 'platform': really_probe: bound device 1e3d000.qcom,iommu-ctx to driver msm_iommu_ctx
+[    9.580044] bus: 'platform': really_probe: bound device 1e00000.qcom,iommu to driver msm_iommu
+[    9.592719] bus: 'platform': really_probe: probing driver msm with device 1a00000.qcom,mdss_mdp
+[    9.601074] in platform_drv_probe , calling drv->probe with dev ffffffc035f39000 and drv ffffffc000fe4218
+[    9.659435] 1a98000.qcom,mdss_dsi supply gdsc not found, using dummy regulator
+[    9.664368] 1a98000.qcom,mdss_dsi supply gdsc not found, using dummy regulator
+[    9.697458] msm 1a00000.qcom,mdss_mdp: bound 1a98000.qcom,mdss_dsi (ops dsi_ops)
+[    9.698842] msm 1a00000.qcom,mdss_mdp: bound 1c00000.qcom,adreno-3xx (ops a3xx_ops)
+[    9.706598] 1a00000.qcom,mdss_mdp supply vdd not found, using dummy regulator
+[    9.749944] bus: 'mipi-dsi': really_probe: probing driver mipi_dsi_dummy with device 1a98000.qcom,mdss_dsi.0
+[    9.752213] bus: 'mipi-dsi': really_probe: bound device 1a98000.qcom,mdss_dsi.0 to driver mipi_dsi_dummy
+[    9.763170] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    9.768761] [drm] No driver support for vblank timestamp query.
+[    9.786474] msm 1a00000.qcom,mdss_mdp: No connectors reported connected with modes
+[    9.787113] [drm] Cannot find any crtc or sizes - going 1024x768
+[   10.146604] Console: switching to colour frame buffer device 128x48
+[   10.270665] msm 1a00000.qcom,mdss_mdp: fb0: msm frame buffer device
+[   10.292819] [drm] Initialized msm 1.0.0 20130625 on minor 0
+[   10.293416] bus: 'platform': really_probe: bound device 1a00000.qcom,mdss_mdp to driver msm
+[   10.301703] bus: 'platform': really_probe: probing driver msm_otg with device 78d9000.phy
+[   10.312967] in platform_drv_probe , calling drv->probe with dev ffffffc035e84c00 and drv ffffffc000ff5160
+[   10.321345] msm_otg 78d9000.phy: OTG regs = ffffff800061a000
+[   10.328278] msm_otg 78d9000.phy: no vddcx
+[   10.462843] bus: 'platform': really_probe: bound device 78d9000.phy to driver msm_otg
+[   10.463056] bus: 'platform': really_probe: probing driver msm_hsusb_host with device 78d9000.ehci
+[   10.469764] in platform_drv_probe , calling drv->probe with dev ffffffc035e84800 and drv ffffffc000ff56b0
+[   10.478798] bus: 'platform': really_probe: bound device 78d9000.ehci to driver msm_hsusb_host
+[   10.488230] bus: 'platform': really_probe: probing driver msm_hsusb with device 78d9000.usb
+[   10.496618] in platform_drv_probe , calling drv->probe with dev ffffffc035e84400 and drv ffffffc000ffc0d0
+[   10.505043] bus: 'platform': really_probe: probing driver ci_hdrc with device ci_hdrc.0
+[   10.514494] in platform_drv_probe , calling drv->probe with dev ffffffc034b68400 and drv ffffffc000ffbea0
+[   10.525857] bus: 'platform': really_probe: bound device ci_hdrc.0 to driver ci_hdrc
+[   10.532006] bus: 'platform': really_probe: bound device 78d9000.usb to driver msm_hsusb
+[   10.539672] bus: 'platform': really_probe: probing driver qcom-vidc with device 1d00000.qcom,vidc
+[   10.547562] in platform_drv_probe , calling drv->probe with dev ffffffc035ec5000 and drv ffffffc0010038f8
+[   10.558396] bus: 'platform': really_probe: bound device 1d00000.qcom,vidc to driver qcom-vidc
+[   10.566248] bus: 'platform': really_probe: probing driver qcom-tsens with device 4a8000.thermal-sensor
+[   10.574599] in platform_drv_probe , calling drv->probe with dev ffffffc035e87c00 and drv ffffffc0010082e8
+[   10.584179] bus: 'platform': really_probe: bound device 4a8000.thermal-sensor to driver qcom-tsens
+[   10.593722] bus: 'platform': really_probe: probing driver gpio-keys with device gpio_keys
+[   10.602398] in platform_drv_probe , calling drv->probe with dev ffffffc035f89800 and drv ffffffc000ffd668
+[   10.610817] input: gpio_keys as /devices/platform/gpio_keys/input/input1
+[   10.620366] bus: 'platform': really_probe: bound device gpio_keys to driver gpio-keys
+[   10.621446] msm_otg 78d9000.phy: Avail curr from USB = 100
+[   10.634771] rtc-pm8xxx 200f000.spmi:pm8916@0:rtc@6000: setting system clock to 1970-01-01 03:15:14 UTC (11714)
+[   10.648373] ALSA device lis�[   10.654176] Freeing unused kernel memory: 1000K (ffffffc000e49000 - ffffffc000f43000)
+[   10.654230] Freeing alternatives memory: 64K (ffffffc000f43000 - ffffffc000f53000)
+Loading, please wait...
+starting version 230
+[   10.696649] random: systemd-udevd: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.697077] random: systemd-udevd: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.700575] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.700739] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.700792] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.700885] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.701219] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.701313] random: udevadm: uninitialized urandom read (16 bytes read, 26 bits of entropy available)
+[   10.701658] random: udevadm: uninitialized urandom read (16 bytes read, 27 bits of entropy available)
+[   10.701747] random: udevadm: uninitialized urandom read (16 bytes read, 27 bits of entropy available)
+Begin: Loading essential drivers ... done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... done.
+Begin: Will now check root file system ... fsck from util-linux 2.27.1
+[/sbin/fsck.ext4 (1) -- /dev/mmcblk0p10] fsck.ext4 -a -C0 /dev/mmcblk0p10 
+rootfs: clean, 50891/437760 files, 428420/1842679 blocks
+done.
+[   11.505500] EXT4-fs (mmcblk0p10): mounted filesystem with ordered data mode. Opts: (null)
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... done.
+[   11.687806] systemd[1]: System time before build time, advancing clock.
+[   11.699027] systemd[1]: Failed to insert module 'kdbus': Function not implemente�
+Welcome to Debian GNU/Linux 8 (jessie)!
+
+[/etc/systemd/system/NetworkManager.service.d/override.conf:1] Assignment outside of section. Ignoring.
+[/etc/systemd/system/NetworkManager.service.d/override.conf:2] Assignment outside of section. Ignoring.
+[  OK  ] Listening on /dev/initctl Compatibility Named Pipe.
+[  OK  ] Listening on Journal Socket (/dev/log).
+[  OK  ] Reached target Encrypted Volumes.
+[  OK  ] Listening on udev Kernel Socket.
+[  OK  ] Reached target Remote File Systems (Pre).
+[  OK  ] Created slice User and Session Slice.
+[  OK  ] Listening on Syslog Socket.
+[  OK  ] Set up automount Arbitrary Executab...ats File System Automount Point.
+[  OK  ] Listening on udev Control Socket.
+[  OK  ] Created slice System Slice.
+[  OK  ] Reached target Slices.
+[  OK  ] Created slice system-getty.slice.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Listening on Journal Socket.
+         Starting Load Kernel Modules...
+         Starting Nameserver information manager...
+[  OK  ] Listening on Journal Audit Socket.
+         Starting Journal Service...
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+         Mounting Huge Pages File System...
+         Mounting POSIX Message Queue File System...
+         Starting Create list of required st... nodes for the current kernel...
+[  OK  ] Reached target Swap.
+         Mounting Debug File System...
+[  OK  ] Started Load Kernel Modules.
+[  OK  ] Started Create list of required sta...ce nodes for the current kernel.
+         Starting Create Static Device Nodes in /dev...
+         Starting Apply Kernel Variables...
+         Mounting FUSE Control File System...
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Mounted Debug File System.
+[  OK  ] Mounted Huge Pages File System.
+[  OK  ] Started Apply Kernel Variables.
+[  OK  ] Mounted FUSE Control File System.
+[  OK  ] Started Nameserver information manager.
+[  OK  ] Started Create Static Device Nodes in /dev.
+         Starting udev Kernel Device Manager...
+[  OK  ] Started Journal Service.
+[  OK  ] Started udev Kernel Device Manager.
+         Starting LSB: Set preliminary keymap...
+[  OK  ] Started LSB: Set preliminary keymap.
+         Starting Remount Root and Kernel File Systems...
+[  OK  ] Started Remount Root and Kernel File Systems.
+[  OK  ] Reached target Local File Systems (Pre).
+[  OK  ] Reached target Local File Systems.
+         Starting Raise network interfaces...
+         Starting Tell Plymouth To Write Out Runtime Data...
+         Starting Load/Save Random Seed...
+         Starting Flush Journal to Persistent Storage...
+         Starting udev Coldplug all Devices...
+[  OK  ] Started Tell Plymouth To Write Out Runtime Data.
+[  OK  ] Started Load/Save Random Seed.
+[   12.912164] systemd-journald[1932]: Received request to�[  OK  ] Started Flush Journal to Persistent Storage.
+         Starting Create Volatile Files and Directories...
+[  OK  ] Started Create Volatile Files and Directories.
+         Starting Network Time Synchronization...
+         Starting Update UTMP about System Boot/Shutdown...
+[  OK  ] Started Update UTMP about System Boot/Shutdown.
+[  OK  ] Started udev Coldplug all Devices.
+[  OK  ] Started Network Time Synchronization.
+[  OK  ] Reached target System Time Synchronized.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Raise network interfaces.
+[   13.690919] cfg80211: World regulatory domain updated:
+
+
+[   13.698961] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[   13.698996] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   13.708145] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   13.725471] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
+[   1�[  OK  ] Reached target Network is Online[   13.738447] cfg80211:   (5250000 KHz - 5330000 KHz @ 80000 KHz, 160000 KHz AUTO), (N/A, 2000 mBm), )
+.
+[   13.748321]  remoteproc1: powering up soc:vidc_tzpil@0
+[   13.750281]  remoteproc1: Booting fw image venus.mdt, size 6812
+[   13.757137] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
+[   13.758475] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
+[  OK  ] Set up automount root-fromhost.automount.
+[  OK  ] Reached target Remote File Systems.
+[   13.821574] qcom-tz-pil soc:vidc_tzpil@0: start successful
+[   13.821602�         Starting LSB: Prepare console...
+[  OK  ] Reached target Sound Card.
+[  OK  ] Found device /dev/ttyMSM0.
+[  OK  ] Started LSB: Prepare console.
+         Starting LSB: Set console font and keymap...
+[  OK  ] Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
+[  OK  ] Started LSB: Set console font and keymap.
+[  OK  ] Reached target System Initialization.
+         Starting Restore Sound Card State...
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Timers.
+[  OK  ] Listening on ACPID Listen Socket.
+[  OK  ] Reached target Sockets.
+[  OK  ] Started ACPI Events Check.
+[  OK  ] Reached target Paths.
+[  OK  ] Reached target Basic System.
+         Starting /etc/rc.local Compatibility...
+         Starting Start the WCN core...
+         Starting LSB: exim Mail Transport Agent...
+         Starting LSB: Load kernel modules needed to enable cpufreq scaling...
+         Starting Restore /etc/resolv.conf i...e the ppp link was shut down..[   14.628984]  remoteproc2: powering up a204000.wcnss
+..
+[  OK  ] Started OpenBSD Secure Shell server.
+[  OK  ] Started ACPI event daemon.
+         Starting Permit User Sessions...
+         Starting System Logging Service...
+         Starting LSB: Advanced IEEE 802.11 management daemon...
+         Starting LSB: network benchmark...
+[  OK  ] Started Regular background program processing daemon.
+[ �         Starting Initialize hardware monitoring sensors...
+         Starting Login Service...
+[  OK  ] Started D-Bus System Message Bus.
+         Starting Modem Manager...
+         Starting Network Manager...
+[  OK  ] Started System Logging Service.
+[  OK  ] Started Restore Sound Card State.
+[  OK  ] Started /etc/rc.local Compatibility.
+[  OK  ] Started Restore /etc/resolv.conf if...ore the ppp link was shut down..
+[  OK  ] Started Permit User Sessions.
+[  OK  ] Started LSB: Advanced IEEE 802.11 management daemon.
+[   15.031444] bus: 'qcom_smd': really_probe: probing driver qcom_smd_qrtr with device pronto.IPCRTR
+[   15.031555] bus:�[  OK  ] Started Initialize hardware monitoring sensors.
+[  OK  ] Started LSB: network benchmark.
+[   15.159179]  remoteproc2: remote processor a204000.wcns�[  OK  ] Started Login Service.
+[  OK  ] Started Start the WCN core.
+[  OK  ] Started LSB: Load kernel modules needed to enable cpufreq scaling.
+         Starting LSB: set CPUFreq kernel parameters...
+         Starting Authenticate and Authorize Users to Run Privileged Tasks...
+         Starting Terminate Plymouth Boot Screen...
+[   15.277266] bus: 'qcom_smd': really_probe: probing driver qcom_wcnss_ctrl with device pronto.wcnss
+[   15.277472] bus: 'qcom_smd': really_probe: bound device pronto.wcnss to driver qcom_wcnss_ctrl
+[   15.285487] qcom_wcnss_ctrl pronto.wcnss: WCNSS Version 1.5 1.2
+         Starting Wait for Plymouth Boot Screen to Quit...
+[  OK  ] Started Terminate Plymouth Boot Screen.
+[  OK  ] Started Wait for Plymouth Boot Screen to Quit.
+[  OK  ] Started Authenticate and Authorize Users to Run Privileged Tasks.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyMSM0.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Started Modem Manager.
+[  OK  ] Started LSB: set CPUFreq kernel parameters.
+[  OK  ] Started LSB: exim Mail Transport Agent.
+[  OK  ] Started Network Manager.
+[  OK  ] Reached target Multi-User System.
+[  OK  ] Reached target Graphical Interface.
+         Starting Update UTMP about System Runlevel Changes...
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+
+Debian GNU/Linux 8 linaro-developer ttyMSM0
+
+linaro-developer login: root (automatic login)
+
+Last login: Fri Apr 21 09:21:38 UTC 2017 on ttyMSM0
+Linux linaro-developer 4.4.23-linaro-lt-qcom #30 SMP PREEMPT Fri Apr 21 15:31:43 IDT 2017 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+root@linaro-developer:~# [   16.931985] bus: 'platform': really_probe: probing driver btqcomsmd with device smd:pronto:wcnss:bt
+[   16.932140] in platform_drv_probe , calling drv->probe with dev ffffffc03472d400 and drv ffffffc0010086b8
+[   16.945736] bus: 'platform': really_probe: bound device smd:pronto:wcnss:bt to driver btqcomsmd
+[   16.950783] bus: 'platform': really_probe: probing driver wcn36xx with device smd:pronto:wcnss:wifi
+[   16.958321] in platform_drv_probe , calling drv->probe with dev ffffffc03472ec00 and drv ffffffbffc00b330
+[   16.967292] wcn36xx: mac address: 02:00:46:cf:2e:68
+[   16.980084] bus: 'platform': really_probe: bound device smd:pronto:wcnss:wifi to driver wcn36xx
+[   17.153920] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[   17.153952] Bluetooth: BNEP filters: protocol multicast
+[   17.158415] Bluetooth: BNEP socket layer initialized
+[   17.331541] wcn36xx: firmware WLAN version 'WCN v2.0 RadioPhy vRhea_GF_1.12 with 19.2MHz XO' and CRM version 'CNSS-PR-2-0-1-2-c1-00010'
+[   17.331585] wcn36xx: firmware API 1.5.1.2, 41 stations, 2 bssids
+[   17.343545] wcn36xx: FW Cap MCC
+[   17.348839] wcn36xx: FW Cap P2P
+[   17.351663] wcn36xx: FW Cap SLM_SESSIONIZATION
+[   17.354789] wcn36xx: FW Cap DOT11AC_OPMODE
+[   17.359300] wcn36xx: FW Cap SAP32STA
+[   17.363378] wcn36xx: FW Cap TDLS
+[   17.367111] wcn36xx: FW Cap P2P_GO_NOA_DECOUPLE_INIT_SCAN
+[   17.370326] wcn36xx: FW Cap WLANACTIVE_OFFLOAD
+[   17.375617] wcn36xx: FW Cap BEACON_OFFLOAD
+[   17.379958] wcn36xx: FW Cap SCAN_OFFLOAD
+[   17.384036] wcn36xx: FW Cap BCN_MISS_OFFLOAD
+[   17.388117] wcn36xx: FW Cap STA_POWERSAVE
+[   17.392372] wcn36xx: FW Cap STA_ADVANCED_PWRSAVE
+[   17.396278] wcn36xx: FW Cap BCN_FILTER
+[   17.400967] wcn36xx: FW Cap RTT
+[   17.404524] wcn36xx: FW Cap RATECTRL
+[   17.407558] wcn36xx: FW Cap WOW
+[   17.411381] wcn36xx: FW Cap WLAN_ROAM_SCAN_OFFLOAD
+[   17.414247] wcn36xx: FW Cap SPECULATIVE_PS_POLL
+[   17.419109] wcn36xx: FW Cap IBSS_HEARTBEAT_OFFLOAD
+[   17.423535] wcn36xx: FW Cap WLAN_SCAN_OFFLOAD
+[   17.428396] wcn36xx: FW Cap WLAN_PERIODIC_TX_PTRN
+[   17.432825] wcn36xx: FW Cap ADVANCE_TDLS
+[   17.437511] wcn36xx: FW Cap BATCH_SCAN
+[   17.441501] wcn36xx: FW Cap FW_IN_TX_PATH
+[   17.445027] wcn36xx: FW Cap EXTENDED_NSOFFLOAD_SLOT
+[   17.449143] wcn36xx: FW Cap CH_SWITCH_V1
+[   17.453914] wcn36xx: FW Cap HT40_OBSS_SCAN
+[   17.458174] wcn36xx: FW Cap UPDATE_CHANNEL_LIST
+[   17.461899] wcn36xx: FW Cap WLAN_MCADDR_FLT
+[   17.466319] wcn36xx: FW Cap WLAN_CH144
+[   17.470529] wcn36xx: FW Cap TDLS_SCAN_COEXISTENCE
+[   17.474308] wcn36xx: FW Cap LINK_LAYER_STATS_MEAS
+[   17.479078] wcn36xx: FW Cap EXTENDED_SCAN
+[   17.483765] wcn36xx: FW Cap DYNAMIC_WMM_PS
+[   17.487757] wcn36xx: FW Cap MAC_SPOOFED_SCAN
+[   17.491752] wcn36xx: FW Cap FW_STATS
+[   17.496176] wcn36xx: FW Cap WPS_PRBRSP_TMPL
+[   17.499739] wcn36xx: FW Cap BCN_IE_FLT_DELTA
+[   19.325620] random: nonblocking pool is initialized
+[   19.463520] wlan0: authenticate with 00:12:2a:1d:80:02
+[   19.510736] wlan0: send auth to 00:12:2a:1d:80:02 (try 1/3)
+[   19.512615] wlan0: authenticated
+[   19.517511] wlan0: associate with 00:12:2a:1d:80:02 (try 1/3)
+[   19.521007] wlan0: RX AssocResp from 00:12:2a:1d:80:02 (capab=0x431 status=0 aid=2)
+[   19.558907] wlan0: associated
+[   19.594377] cfg80211: Regulatory domain changed to country: IL
+[   19.594414] cfg80211:  DFS Master region: ETSI
+[   19.599201] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[   19.603635] cfg80211:   (2402000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[   19.613257] cfg80211:   (5150000 KHz - 5250000 KHz @ 80000 KHz, 200000 KHz AUTO), (N/A, 2301 mBm), (N/A)
+[   19.621053] cfg80211:   (5250000 KHz - 5350000 KHz @ 80000 KHz, 200000 KHz AUTO), (N/A, 2301 mBm), (0 s)
