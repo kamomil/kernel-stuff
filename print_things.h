@@ -50,6 +50,7 @@ int print_all_kinds(void){
 }
 int print_mem_regs(void){
 
+  unsigned long long pfn = 
   printk( KERN_INFO "vmalloc: starts: 0x%lx ends 0x%lx\n",VMALLOC_START,VMALLOC_END);
   printk( KERN_INFO "vmemmap: starts: 0x%lx ends 0x%lx\n",VMEMMAP_START,VMEMMAP_START+VMEMMAP_SIZE);
   printk( KERN_INFO "fixed:   starts: 0x%lx ends 0x%lx\n",FIXADDR_START,FIXADDR_TOP);
@@ -58,7 +59,16 @@ int print_mem_regs(void){
   printk( KERN_INFO "memory:  starts: 0x%lx ends 0x%lx\n",PAGE_OFFSET,(unsigned long)high_memory);
 
   printk( KERN_INFO "physical range corresponding to memory:  starts: 0x%llx ends 0x%llx\n",virt_to_phys(PAGE_OFFSET),virt_to_phys(high_memory));
-    
+
+  printk( KERN_INFO "__pa(PAGE_OFFSET) = 0x%llx\n",__pa(PAGE_OFFSET));
+  printk( KERN_INFO "__pa(PAGE_OFFSET) >> PAGE_SHIFT = 0x%llx\n",__pa(PAGE_OFFSET) >> PAGE_SHIFT);
+  printk( KERN_INFO "pfn_to_page(__pa(PAGE_OFFSET) >> PAGE_SHIFT) = 0x%lx\n",pfn_to_page(__pa(PAGE_OFFSET) >> PAGE_SHIFT));
+  printk( KERN_INFO "virt_to_page(PAGE_OFFSET) = %p\n",virt_to_page(PAGE_OFFSET));
+
+  /* #define __pfn_to_page(pfn)      (vmemmap + (pfn)) */
+  printk( KERN_INFO "vmemmap = 0x%llx, vmemmap+(__pa(PAGE_OFFSET) >> PAGE_SHIFT) = 0x%llx\n",vmemmap,(vmemmap+(__pa(PAGE_OFFSET) >> PAGE_SHIFT)));
+  printk( KERN_INFO "sizeof(struct page) = 0x%lx",sizeof(struct page));
+  
   printk(KERN_INFO "\n");
   return 0;
 }

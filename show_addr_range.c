@@ -1,4 +1,5 @@
 #include "lab_miscdev.h"
+#include <linux/module.h>
 #include <asm/io.h>
 #include <linux/memblock.h>
 #include <asm/fixmap.h>
@@ -35,7 +36,16 @@ now:
 
  */
 
+/*************************************/
 
+/*
+ notice: vmemmap is a struct page pointer , therefore the additionis pointer arithmetic, 
+   i.e. vmemmap +pfn*sizeof(struct page)
+
+#define __pfn_to_page(pfn)	(vmemmap + (pfn))
+
+
+ */
 
 int my_global;
 static long printing_add_zone(void){
@@ -91,6 +101,9 @@ static long printing_add_zone(void){
 
   printk(KERN_INFO "checking ange for address phys_to_virt(0):\n");
   print_virtual_reg((void*)p);
+
+#define RESERVED_MEMORY_OFFSET  0x0000000090000000
+  printk(KERN_INFO "%c%c%c%c\n",*((char*)phys_to_virt(RESERVED_MEMORY_OFFSET)),*(((char*)phys_to_virt(RESERVED_MEMORY_OFFSET))+1),*(((char*)phys_to_virt(RESERVED_MEMORY_OFFSET))+2),*(((char*)phys_to_virt(RESERVED_MEMORY_OFFSET))+3) );
   
   return 0;
 }
