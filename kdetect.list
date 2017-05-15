@@ -1,0 +1,138 @@
+usb 0424 2513 090002 ...... 0bb3
+usb 1d6b 0002 090001 ...... 0404
+usb .... .... ...... 090000 ....
+usb .... .... ...... 090002 ....
+i2c QUP I2C adapter
+i2c QUP I2C adapter
+i2c QUP I2C adapter
+i2c adv7533
+i2c dummy
+i2c dummy
+
+
+
+
+
+
+
+
+
+
+
+
+
+platform "reg-dummy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+platform "alarmtimer"
+
+
+
+
+
+
+
+
+
+platform "snd-soc-dummy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+platform "ci_hdrc"
+
+
+
+
+
+
+
+
+
+
+
+
+
+platform "serial8250"
+
+
+
+
+
+
+
+
+
+
+
+
+
+platform "cpufreq-dt"
+
+
+
+
+
+
+
+
+
+
+
+platform "regulatory"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fs autofs
+fs cgroup
+fs debugfs
+fs devpts
+fs devtmpfs
+fs ext4
+fs fusectl
+fs hugetlbfs
+fs mqueue
+fs proc
+fs sysfs
+fs tmpfs
+module Module
+module bnep
+module wcn36xx
+kernel Linux 4.4.23-linaro-lt-qcom
+arch aarch64 unknown aarch64
+config MODULES
