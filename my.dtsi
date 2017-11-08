@@ -1,0 +1,13 @@
+/* /dts-v1/; */
+
+/ {
+
+	stam_node {
+		compatible =  "stam,devdev";
+		stam = "stamstam";
+		stam2_label: stam2;
+		stam3_label: stam3 = "stamstam3";
+		default-state = "off";
+	};
+	chosen {};	
+};
