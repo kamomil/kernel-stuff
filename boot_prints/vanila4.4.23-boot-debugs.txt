@@ -1,0 +1,271 @@
+boot debugs for vanila kernel 4.4.23 compiled from linux-stable and apcked using:
+
+./skales/mkbootimg --kernel arch/arm64/boot/Image --ramdisk ~/kernel/initrd.img-4.4.23-linaro-lt-qcom --dt ~/kernel/dt.img --output boot-db410c.img --pagesize 2048 --base 0x80000000 --cmdline "$cmdline"
+	
+
+[10] platform_init()                                                                                                                            
+[10] target_init()                                                                                                                              
+[50] SDHC Running in HS200 mode                                                                                                                 
+[60] Done initialization of the card                                                                                                            
+[60] pm8x41_get_is_cold_boot: cold boot                                                                                                         
+[70] No 'frp' partition found                                                                                                                   
+[70] Not able to search the panel:                                                                                                              
+[110] ERROR: splash Partition invalid                                                                                                           
+[110] Config MIPI_VIDEO_PANEL.                                                                                                                  
+[120] Turn on MIPI_VIDEO_PANEL.                                                                                                                 
+[130] Video lane tested successfully                                                                                                            
+[160] pm8x41_get_is_cold_boot: cold boot                                                                                                        
+[160] Invalid partition index                                                                                                                   
+[160] Invalid partition index                                                                                                                   
+[160] Invalid partition index                                                                                                                   
+[170] fastboot_init()                                                                                                                           
+[170] Error: ssd partition not found                                                                                                            
+[270] USB init ept @ 0x8f69d000                                                                                                                 
+[290] udc_start()                                                                                                                               
+[410] -- reset --                                                                                                                               
+[420] -- portchange --                                                                                                                          
+[530] -- reset --                                                                                                                               
+[530] -- portchange --                                                                                                                          
+[720] fastboot: processing commands                                                                                                             
+[14410] fastboot: download:00ede800                                                                                                             
+[14890] fastboot: boot                                                                                                                          
+[14890] DTB Total entry: 15, DTB version: 2                                                                                                     
+[14900] platform_dt_match_best: Dafna                                                                                                           
+[14900] Using DTB entry 0x000000ce/00000000/0x00010018/0 for device 0x000000ce/00010000/0x00010018/0                                            
+[14910] Using pmic info 0x2000b/0x0/0x0/0x0 for device 0x2000b/0x0/0x0/0x0                                                                      
+[14930] cmdline: root=/dev/disk/by-partlabel/rootfs rw rootwait rootdelay=20 console=ttyMSM0,115200n8 earlycon=msm_serial_dm,0x78b0000 androidb:
+[14950] Updating device tree: start                                                                                                             
+[15050] Updating device tree: done                                                                                                              
+[15060] Turn off MIPI_VIDEO_PANEL.                                                                                                              
+[15140] booting linux @ 0x80080000, ramdisk @ 0x82000000 (3714984), tags/device tree @ 0x81e00000                                               
+[15150] Jumping to kernel via monitor                                                                                                           
+Booting Linux on physical CPU 0x0                                                                                                               
+Initializing cgroup subsys cpu                                                                                                                  
+Linux version 4.4.23 (dafna@guri) (gcc version 5.4.0 20160609 (Ubuntu/Linaro 5.4.0-6ubuntu1~16.04.4) ) #1 SMP PREEMPT Sun Apr 30 11:46:36 IDT 27
+Boot CPU: AArch64 Processor [410fd030]                                                                                                          
+earlycon: Early serial console at MMIO 0x78b0000 (options '')                                                                                   
+bootconsole [uart0] enabled                                                                                                                     
+efi: Getting EFI parameters from FDT:                                                                                                           
+efi: UEFI not found.                                                                                                                            
+Reserved memory: OVERLAP DETECTED!                                                                                                              
+hypervisor_region@86400000 (0x0000000086400000--0x0000000086800000) overlaps with rmtfs@86700000 (0x0000000086700000--0x00000000867e0000)       
+Reserved memory: OVERLAP DETECTED!                                                                                                              
+modem_adsp_region@86800000 (0x0000000086800000--0x000000008b000000) overlaps with wcnss@89300000 (0x0000000089300000--0x0000000089900000)       
+cma: Reserved 16 MiB at 0x00000000bf000000                                                                                                      
+psci: probing for conduit method from DT.                                                                                                       
+psci: PSCIv1.0 detected in firmware.                                                                                                            
+psci: Using standard PSCI v0.2 function IDs                                                                                                     
+psci: MIGRATE_INFO_TYPE not supported.                                                                                                          
+PERCPU: Embedded 17 pages/cpu @ffffffc03ef3d000 s28696 r8192 d32744 u69632                                                                      
+Detected VIPT I-cache on CPU0                                                                                                                   
+CPU features: enabling workaround for ARM errata 826319, 827319, 824069                                                                         
+CPU features: enabling workaround for ARM erratum 845719                                                                                        
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 234108                                                                     
+Kernel command line: root=/dev/disk/by-partlabel/rootfs rw rootwait rootdelay=20 console=ttyMSM0,115200n8 earlycon=msm_serial_dm,0x78b0000 andr:
+log_buf_len individual max cpu contribution: 4096 bytes                                                                                         
+log_buf_len total cpu_extra contributions: 12288 bytes                                                                                          
+log_buf_len min size: 16384 bytes                                                                                                               
+log_buf_len: 32768 bytes                                                                                                                        
+early log buf free: 13732(83%)                                                                                                                  
+PID hash table entries: 4096 (order: 3, 32768 bytes)                                                                                            
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)                                                                               
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)                                                                                  
+software IO TLB [mem 0xb9c00000-0xbdc00000] (64MB) mapped at [ffffffc039c00000-ffffffc03dbfffff]                                                
+Memory: 833748K/951296K available (6746K kernel code, 915K rwdata, 2816K rodata, 908K init, 227K bss, 101164K reserved, 16384K cma-reserved)    
+Virtual kernel memory layout:                                                                                                                   
+    vmalloc : 0xffffff8000000000 - 0xffffffbdbfff0000   (   246 GB)                                                                             
+    vmemmap : 0xffffffbdc0000000 - 0xffffffbfc0000000   (     8 GB maximum)                                                                     
+              0xffffffbdc0000000 - 0xffffffbdc1000000   (    16 MB actual)                                                                      
+    fixed   : 0xffffffbffa7fd000 - 0xffffffbffac00000   (  4108 KB)                                                                             
+    PCI I/O : 0xffffffbffae00000 - 0xffffffbffbe00000   (    16 MB)                                                                             
+    modules : 0xffffffbffc000000 - 0xffffffc000000000   (    64 MB)                                                                             
+    memory  : 0xffffffc000000000 - 0xffffffc040000000   (  1024 MB)                                                                             
+      .init : 0xffffffc0009d9000 - 0xffffffc000abc000   (   908 KB)                                                                             
+      .text : 0xffffffc000080000 - 0xffffffc0009d89c4   (  9571 KB)                                                                             
+      .data : 0xffffffc000acd000 - 0xffffffc000bb1c00   (   915 KB)                                                                             
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1                                                                                      
+Preemptible hierarchical RCU implementation.                                                                                                    
+        RCU debugfs-based tracing is enabled.                                                                                                   
+        Build-time adjustment of leaf fanout to 64.                                                                                             
+        RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.                                                                                   
+RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=4                                                                                    
+kmemleak: Kernel memory leak detector disabled                                                                                                  
+NR_IRQS:64 nr_irqs:64 0                                                                                                                         
+Architected cp15 and mmio timer(s) running at 19.20MHz (virt/virt).                                                                             
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns                                     
+sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns                                                                     
+Console: colour dummy device 80x25                                                                                                              
+kmemleak: Early log buffer exceeded (815), please increase DEBUG_KMEMLEAK_EARLY_LOG_SIZE                                                        
+Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)                                           
+pid_max: default: 32768 minimum: 301                                                                                                            
+Security Framework initialized                                                                                                                  
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)                                                                                    
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)                                                                               
+Initializing cgroup subsys memory                                                                                                               
+Initializing cgroup subsys hugetlb                                                                                                              
+ftrace: allocating 23642 entries in 93 pages                                                                                                    
+EFI services will not be available.                                                                                                             
+ASID allocator initialised with 65536 entries                                                                                                   
+Detected VIPT I-cache on CPU1                                                                                                                   
+CPU1: Booted secondary processor [410fd030]                                                                                                     
+Detected VIPT I-cache on CPU2                                                                                                                   
+CPU2: Booted secondary processor [410fd030]                                                                                                     
+Detected VIPT I-cache on CPU3                                                                                                                   
+CPU3: Booted secondary processor [410fd030]                                                                                                     
+Brought up 4 CPUs                                                                                                                               
+SMP: Total of 4 processors activated.                                                                                                           
+CPU: All CPU(s) started at EL1                                                                                                                  
+alternatives: patching kernel code                                                                                                              
+devtmpfs: initialized                                                                                                                           
+DMI not present or invalid.                                                                                                                     
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns                                                 
+pinctrl core: initialized pinctrl subsystem                                                                                                     
+NET: Registered protocol family 16                                                                                                              
+cpuidle: using governor ladder                                                                                                                  
+cpuidle: using governor menu                                                                                                                    
+vdso: 2 pages (1 code @ ffffffc000ad5000, 1 data @ ffffffc000ad4000)                                                                            
+hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.                                                                                   
+DMA: preallocated 256 KiB pool for atomic allocations                                                                                           
+Serial: AMBA PL011 UART driver                                                                                                                  
+irq: no irq domain found for /hexagon-smp2p/slave-kernel !                                                                                      
+irq: no irq domain found for /wcnss-smp2p/slave-kernel !                                                                                        
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/tpiu@820000                                                                   
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/funnel@821000                                                                 
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/replicator@824000                                                             
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etf@825000                                                                    
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etr@826000                                                                    
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/funnel@841000                                                                 
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etm@85c000                                                                    
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etm@85d000                                                                    
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etm@85e000                                                                    
+of_amba_device_create(): amba_device_add() failed (-517) for /soc/etm@85f000                                                                    
+irq: no irq domain found for /soc/qcom,mdss_mdp@1a00000 !                                                                                       
+vgaarb: loaded                                                                                                                                  
+SCSI subsystem initialized                                                                                                                      
+usbcore: registered new interface driver usbfs                                                                                                  
+usbcore: registered new interface driver hub                                                                                                    
+usbcore: registered new device driver usb                                                                                                       
+dmi: Firmware registration failed.                                                                                                              
+clocksource: Switched to clocksource arch_sys_counter                                                                                           
+NET: Registered protocol family 2                                                                                                               
+TCP established hash table entries: 8192 (order: 4, 65536 bytes)                                                                                
+TCP bind hash table entries: 8192 (order: 5, 131072 bytes)                                                                                      
+TCP: Hash tables configured (established 8192 bind 8192)                                                                                        
+UDP hash table entries: 512 (order: 2, 16384 bytes)                                                                                             
+UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)                                                                                        
+NET: Registered protocol family 1                                                                                                               
+RPC: Registered named UNIX socket transport module.                                                                                             
+RPC: Registered udp transport module.                                                                                                           
+RPC: Registered tcp transport module.                                                                                                           
+RPC: Registered tcp NFSv4.1 backchannel transport module.                                                                                       
+Unpacking initramfs...                                                                                                                          
+Freeing initrd memory: 3624K (ffffffc002000000 - ffffffc00238a000)                                                                              
+hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available                                                                        
+kvm [1]: HYP mode not available                                                                                                                 
+futex hash table entries: 1024 (order: 5, 131072 bytes)                                                                                         
+audit: initializing netlink subsys (disabled)                                                                                                   
+audit: type=2000 audit(0.711:1): initialized                                                                                                    
+HugeTLB registered 2 MB page size, pre-allocated 0 pages                                                                                        
+VFS: Disk quotas dquot_6.6.0                                                                                                                    
+VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)                                                                                  
+NFS: Registering the id_resolver key type                                                                                                       
+Key type id_resolver registered                                                                                                                 
+Key type id_legacy registered                                                                                                                   
+fuse init (API version 7.23)                                                                                                                    
+9p: Installing v9fs 9p2000 file system support                                                                                                  
+io scheduler noop registered                                                                                                                    
+io scheduler cfq registered (default)                                                                                                           
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled                                                                                        
+msm_serial 78af000.serial: msm_serial: detected port #1                                                                                         
+msm_serial 78af000.serial: uartclk = 3686400                                                                                                    
+78af000.serial: ttyMSM1 at MMIO 0x78af000 (irq = 137, base_baud = 23040�����������������f昘��怘���f枞�f�fxf����������fxf�������f��f�fxf���xf~                                                                                                                                    d
+console [ttyMSM0] enabled                                                                                                                       
+bootconsole [uart0] disabled                                                                                                                    
+bootconsole [uart0] disabled                                                                                                                    
+msm_serial: driver initialized                                                                                                                  
+loop: module loaded                                                                                                                             
+spi_qup 78b7000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64                                                                                
+spi_qup 78b9000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64                                                                                
+tun: Universal TUN/TAP device driver, 1.6                                                                                                       
+tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>                                                                                          
+sky2: driver version 1.30                                                                                                                       
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver                                                                                      
+ehci-pci: EHCI PCI platform driver                                                                                                              
+ehci-platform: EHCI generic platform driver                                                                                                     
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver                                                                                          
+ohci-pci: OHCI PCI platform driver                                                                                                              
+ohci-platform: OHCI generic platform driver                                                                                                     
+usbcore: registered new interface driver usb-storage                                                                                            
+mousedev: PS/2 mouse device common for all mice                                                                                                 
+sdhci: Secure Digital Host Controller Interface driver                                                                                          
+sdhci: Copyright(c) Pierre Ossman                                                                                                               
+Synopsys Designware Multimedia Card Interface Driver                                                                                            
+sdhci-pltfm: SDHCI platform and OF driver helper                                                                                                
+ledtrig-cpu: registered to indicate activity on CPUs                                                                                            
+usbcore: registered new interface driver usbhid                                                                                                 
+usbhid: USB HID core driver                                                                                                                     
+NET: Registered protocol family 17                                                                                                              
+9pnet: Installing 9P2000 support                                                                                                                
+Key type dns_resolver registered                                                                                                                
+registered taskstats version 1                                                                                                                  
+input: gpio_keys as /devices/platform/gpio_keys/input/input0                                                                                    
+hctosys: unable to open rtc device (rtc0)                                                                                                       
+Freeing unused kernel memory: 908K (ffffffc0009d9000 - ffffffc000abc000)                                                                        
+Freeing alternatives memory: 48K (ffffffc000abc000 - ffffffc000ac8000)                                                                          
+Loading, please wait...                                                                                                                         
+starting version 230                                                                                                                            
+random: systemd-udevd: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                  
+random: systemd-udevd: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                  
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+random: udevadm: uninitialized urandom read (16 bytes read, 4 bits of entropy available)                                                        
+Begin: Loading essential drivers ... done.                                                                                                      
+Begin: Running /scripts/init-premount ... done.                                                                                                 
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.                                                                
+Begin: Running /scripts/local-premount ... done.                                                                                                
+Begin: Waiting for root file system ... Begin: Running /scripts/local-block ... done.                                                           
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+Begin: Running /scripts/local-block ... done.                                                                                                   
+done.                                                                                                                                           
+Gave up waiting for root device.  Common problems:                                                                                              
+ - Boot args (cat /proc/cmdline)                                                                                                                
+   - Check rootdelay= (did the system wait long enough?)                                                                                        
+   - Check root= (did the system wait for the right device?)                                                                                    
+ - Missing modules (cat /proc/modules; ls /dev)                                                                                                 
+ALERT!  /dev/disk/by-partlabel/rootfs does not exist.  Dropping to a shell!                                                                     
+(initramfs) random: nonblocking pool is initialized                                                                                             
+                                                                                                                                                
+(initramfs) 
+
