@@ -1,0 +1,344 @@
+diff --git a/arch/arm64/boot/dts/qcom/msm8916.dtsi b/arch/arm64/boot/dts/qcom/msm8916.dtsi
+index 551c12a..752907c 100644
+--- a/arch/arm64/boot/dts/qcom/msm8916.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8916.dtsi
+@@ -46,6 +46,13 @@
+ 		reg = <0 0 0 0>;
+ 	};
+ 
++/* 
++	#address-cells = <2>;
++        #size-cells = <2>;
++
++	reg = <0x0 0x2c010000 0x0 0x1000> 
++	means 64-bit address 0x0000_0000_2C01_0000 with 64-bit length 0x0000_0000_0000_1000
++*/
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -95,6 +102,13 @@
+ 			no-map;
+ 			reg = <0 0x8ea00000 0 0x100000>;
+ 		};
++		dafna_mem1: dafna@90000000 {
++			reg = <0 0x90000000 0 0x100000>;
++		};
++		dafna_mem2: dafna@90100000 {
++			no-map;
++			reg = <0 0x90100000 0 0x200000>;
++		};
+ 	};
+ 
+ 	cpus {
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 8119479..72221ad 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -291,7 +291,8 @@ u64 __cpu_logical_map[NR_CPUS] = { [0 ... NR_CPUS-1] = INVALID_HWID };
+ void __init setup_arch(char **cmdline_p)
+ {
+ 	pr_info("Boot CPU: AArch64 Processor [%08x]\n", read_cpuid_id());
+-
++	pr_notice("setup_arch: Dafna 1\n");
++	
+ 	sprintf(init_utsname()->machine, ELF_PLATFORM);
+ 	init_mm.start_code = (unsigned long) _text;
+ 	init_mm.end_code   = (unsigned long) _etext;
+@@ -305,6 +306,8 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	setup_machine_fdt(__fdt_pointer);
+ 
++	pr_notice("setup_arch: Dafna after setup_machine_fdt\n");
++	
+ 	parse_early_param();
+ 
+ 	/*
+@@ -316,6 +319,7 @@ void __init setup_arch(char **cmdline_p)
+ 	efi_init();
+ 	arm64_memblock_init();
+ 
++	pr_notice("setup_arch: Dafna after arm64_memblock_init\n");
+ 	/* Parse the ACPI tables for possible boot-time configuration */
+ 	acpi_boot_table_init();
+ 
+@@ -353,6 +357,7 @@ void __init setup_arch(char **cmdline_p)
+ 			"This indicates a broken bootloader or old kernel\n",
+ 			boot_args[1], boot_args[2], boot_args[3]);
+ 	}
++	pr_notice("setup_arch: Dafna return\n");
+ }
+ 
+ static int __init arm64_device_init(void)
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 4cb98aa..eb01baf 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -159,7 +159,9 @@ early_param("mem", early_mem);
+ 
+ void __init arm64_memblock_init(void)
+ {
+-	memblock_enforce_memory_limit(memory_limit);
++  pr_notice("arm64_memblock_init: Dafna\n");
++  memblock_enforce_memory_limit(memory_limit);
++
+ 
+ 	/*
+ 	 * Register the kernel text, kernel data, initrd, and initial
+@@ -171,6 +173,7 @@ void __init arm64_memblock_init(void)
+ 		memblock_reserve(__virt_to_phys(initrd_start), initrd_end - initrd_start);
+ #endif
+ 
++	
+ 	early_init_fdt_scan_reserved_mem();
+ 
+ 	/* 4GB maximum for 32-bit only capable devices */
+@@ -188,8 +191,11 @@ void __init bootmem_init(void)
+ {
+ 	unsigned long min, max;
+ 
++	pr_notice("bootmem_init: Dafna\n");
+ 	min = PFN_UP(memblock_start_of_DRAM());
+ 	max = PFN_DOWN(memblock_end_of_DRAM());
++	
++	pr_notice("min pfn = 0x%lx , max pfn = 0x%lx bootmem_init: Dafna\n",min,max);
+ 
+ 	early_memtest(min << PAGE_SHIFT, max << PAGE_SHIFT);
+ 
+@@ -242,6 +248,8 @@ static void __init free_unused_memmap(void)
+ 	struct memblock_region *reg;
+ 
+ 	for_each_memblock(memory, reg) {
++	  pr_notice("free_unused_memmap: Dafna,inside looping the memory regions\n");
++	  pr_notice("free_unused_memmap: Dafna,phys mem of current reg base is 0x%lx\n",reg->base);
+ 		start = __phys_to_pfn(reg->base);
+ 
+ #ifdef CONFIG_SPARSEMEM
+@@ -255,8 +263,10 @@ static void __init free_unused_memmap(void)
+ 		 * If we had a previous bank, and there is a space between the
+ 		 * current bank and the previous, free it.
+ 		 */
+-		if (prev_end && prev_end < start)
+-			free_memmap(prev_end, start);
++		if (prev_end && prev_end < start){
++		  pr_notice("free_unused_memmap: Dafna,freeing mem, start = 0x%lx\n",start);
++		  free_memmap(prev_end, start);
++		}
+ 
+ 		/*
+ 		 * Align up here since the VM subsystem insists that the
+@@ -268,8 +278,10 @@ static void __init free_unused_memmap(void)
+ 	}
+ 
+ #ifdef CONFIG_SPARSEMEM
+-	if (!IS_ALIGNED(prev_end, PAGES_PER_SECTION))
+-		free_memmap(prev_end, ALIGN(prev_end, PAGES_PER_SECTION));
++	if (!IS_ALIGNED(prev_end, PAGES_PER_SECTION)){
++	  pr_notice("free_unused_memmap: Dafna, in loop: freeing aligned\n");
++	  free_memmap(prev_end, ALIGN(prev_end, PAGES_PER_SECTION));
++	}
+ #endif
+ }
+ #endif	/* !CONFIG_SPARSEMEM_VMEMMAP */
+@@ -281,10 +293,17 @@ static void __init free_unused_memmap(void)
+  */
+ void __init mem_init(void)
+ {
++    
+ 	swiotlb_init(1);
+ 
++	pr_notice("mem_init: Dafna: mem_map = %p\n",mem_map);
++	pr_notice("mem_init: Dafna: max_pfn (0x%lx)\n",max_pfn);
++	
+ 	set_max_mapnr(pfn_to_page(max_pfn) - mem_map);
+ 
++	pr_notice("mem_init: Dafna: pfn_to_page(max_pfn) - mem_map =  0x%ld\n",pfn_to_page(max_pfn) - mem_map);
++
++	  
+ #ifndef CONFIG_SPARSEMEM_VMEMMAP
+ 	free_unused_memmap();
+ #endif
+@@ -298,7 +317,7 @@ void __init mem_init(void)
+ #define MLG(b, t) b, t, ((t) - (b)) >> 30
+ #define MLK_ROUNDUP(b, t) b, t, DIV_ROUND_UP(((t) - (b)), SZ_1K)
+ 
+-	pr_notice("Virtual kernel memory layout:\n"
++	pr_notice("Dafna: Virtual kernel memory layout:\n"
+ #ifdef CONFIG_KASAN
+ 		  "    kasan   : 0x%16lx - 0x%16lx   (%6ld GB)\n"
+ #endif
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 655f79d..31bee90 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -496,8 +496,8 @@ static int __init __reserved_mem_reserve_reg(unsigned long node,
+ 
+ 		if (size &&
+ 		    early_init_dt_reserve_memory_arch(base, size, nomap) == 0)
+-			pr_debug("Reserved memory: reserved region for node '%s': base %pa, size %ld MiB\n",
+-				uname, &base, (unsigned long)size / SZ_1M);
++			pr_notice("Reserved memory: reserved region for node '%s': base %pa, size %ld MiB (0x%lx)\n",
++				  uname, &base, (unsigned long)size / SZ_1M,(unsigned long)size);
+ 		else
+ 			pr_info("Reserved memory: failed to reserve memory for node '%s': base %pa, size %ld MiB\n",
+ 				uname, &base, (unsigned long)size / SZ_1M);
+@@ -540,7 +540,7 @@ static int __init __reserved_mem_check_root(unsigned long node)
+ static int __init __fdt_scan_reserved_mem(unsigned long node, const char *uname,
+ 					  int depth, void *data)
+ {
+-	static int found;
++  static int found; /* static variables auto initialized to 0*/
+ 	const char *status;
+ 	int err;
+ 
+@@ -585,6 +585,7 @@ void __init early_init_fdt_scan_reserved_mem(void)
+ 	int n;
+ 	u64 base, size;
+ 
++	pr_notice("early_init_fdt_scan_reserved_mem: Dafna\n");
+ 	if (!initial_boot_params)
+ 		return;
+ 
+@@ -593,6 +594,7 @@ void __init early_init_fdt_scan_reserved_mem(void)
+ 		fdt_get_mem_rsv(initial_boot_params, n, &base, &size);
+ 		if (!size)
+ 			break;
++		pr_notice("early_init_fdt_scan_reserved_mem: Dafna, base = 0x%llx , size = 0x%llx\n",base,size);
+ 		early_init_dt_reserve_memory_arch(base, size, 0);
+ 	}
+ 
+diff --git a/drivers/tty/serial/msm_serial.c b/drivers/tty/serial/msm_serial.c
+index 3b7ca69..1a06068 100644
+--- a/drivers/tty/serial/msm_serial.c
++++ b/drivers/tty/serial/msm_serial.c
+@@ -236,6 +236,7 @@ static void msm_stop_tx(struct uart_port *port)
+ 
+ 	msm_port->imr &= ~UART_IMR_TXLEV;
+ 	msm_write(port, msm_port->imr, UART_IMR);
++	trace_printk("msm_stop_tx called, imr = 0x%x\n",msm_port->imr);
+ }
+ 
+ static void msm_start_tx(struct uart_port *port)
+@@ -529,7 +530,7 @@ static void msm_handle_rx_dm(struct uart_port *port, unsigned int misr)
+ 	int count = 0;
+ 	struct msm_port *msm_port = UART_TO_MSM(port);
+ 
+-	//pr_info("msm_handle_rx_dm\n");
++	trace_printk("msm_handle_rx_dm\n");
+ 	if ((msm_read(port, UART_SR) & UART_SR_OVERRUN)) {
+ 		port->icount.overrun++;
+ 		tty_insert_flip_char(tport, 0, TTY_OVERRUN);
+@@ -620,7 +621,7 @@ static void msm_handle_rx(struct uart_port *port)
+ 		int sysrq;
+ 
+ 		c = msm_read(port, UART_RF);
+-		pr_info("msm_handle_rx: c is 0x%x (%u) ",c,c);
++		trace_printk("msm_handle_rx: c is 0x%x (%u) ",c,c);
+ 		if (sr & UART_SR_RX_BREAK) {
+ 			port->icount.brk++;
+ 			if (uart_handle_break(port))
+@@ -771,7 +772,7 @@ static irqreturn_t msm_uart_irq(int irq, void *dev_id)
+ 	misr = msm_read(port, UART_MISR);
+ 	msm_write(port, 0, UART_IMR); /* disable interrupt */
+ 
+-	//pr_info("irq=%d",irq);
++	trace_printk("msm_uart_irq: irq=%d",irq);
+ 	if (misr & UART_IMR_RXBREAK_START) {
+ 		msm_port->break_detected = true;
+ 		msm_write(port, UART_CR_CMD_RESET_RXBREAK_START, UART_CR);
+@@ -807,7 +808,7 @@ static irqreturn_t msm_uart_irq(int irq, void *dev_id)
+ 
+ static unsigned int msm_tx_empty(struct uart_port *port)
+ {
+-  //pr_info("msm_tx_empty called\n");
++  trace_printk("msm_tx_empty called\n");
+   return (msm_read(port, UART_SR) & UART_SR_TX_EMPTY) ? TIOCSER_TEMT : 0;
+ }
+ 
+@@ -1389,8 +1390,8 @@ static void __msm_console_write(struct uart_port *port, const char *s,
+ 	spin_lock(&port->lock);
+ 	if (is_uartdm)
+ 		msm_reset_dm_count(port, count);
+-
+-	//pr_info("__msm_console_write: going to write %d chars , %d newlines\n",count,num_newlines);
++	if(count == 12)
++	  trace_printk("__msm_console_write: going to write %d chars , %d newlines\n",count,num_newlines);
+ 	i = 0;
+ 	while (i < count) {
+ 		int j;
+@@ -1598,6 +1599,9 @@ static int msm_serial_probe(struct platform_device *pdev)
+ 	port->uartclk = clk_get_rate(msm_port->clk);
+ 	dev_info(&pdev->dev, "uartclk = %d, is_uartdm = %d\n", port->uartclk,msm_port->is_uartdm);
+ 
++	/*
++	  78b0000 and 78af000
++	 */
+ 	resource = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+ 	if (unlikely(!resource))
+ 		return -ENXIO;
+diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+index 4b4b056..061890a 100644
+--- a/include/asm-generic/memory_model.h
++++ b/include/asm-generic/memory_model.h
+@@ -48,6 +48,9 @@
+ #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+ 
+ /* memmap is virtually contiguous.  */
++/* notice: vmemmap is a struct page pointer , therefore the additionis pointer arithmetic, 
++   i.e. vmemmap +pfn*sizeof(struct page)
++*/
+ #define __pfn_to_page(pfn)	(vmemmap + (pfn))
+ #define __page_to_pfn(page)	(unsigned long)((page) - vmemmap)
+ 
+diff --git a/init/main.c b/init/main.c
+index 9e64d70..a3bd2ea 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -503,6 +503,7 @@ asmlinkage __visible void __init start_kernel(void)
+ 	 * Need to run as early as possible, to initialize the
+ 	 * lockdep hash:
+ 	 */
++	pr_notice("start_kernel: (in init/main.c) Dafna\n");
+ 	lockdep_init();
+ 	set_task_stack_end_magic(&init_task);
+ 	smp_setup_processor_id();
+@@ -556,8 +557,11 @@ asmlinkage __visible void __init start_kernel(void)
+ 	vfs_caches_init_early();
+ 	sort_main_extable();
+ 	trap_init();
++
++	pr_notice("start_kernel before mm_init: (in init/main.c) Dafna\n");
+ 	mm_init();
+ 
++	pr_notice("start_kernel after mm_init: (in init/main.c) Dafna\n");
+ 	/*
+ 	 * Set up the scheduler prior starting any interrupts (such as the
+ 	 * timer interrupt). Full topology setup happens at smp_init()
+@@ -632,6 +636,7 @@ asmlinkage __visible void __init start_kernel(void)
+ 	debug_objects_mem_init();
+ 	kmemleak_init();
+ 	setup_per_cpu_pageset();
++	pr_notice("start_kernel: after setup_per_cpu_pageset (in init/main.c) Dafna\n");
+ 	numa_policy_init();
+ 	if (late_time_init)
+ 		late_time_init();
+@@ -681,6 +686,7 @@ asmlinkage __visible void __init start_kernel(void)
+ 
+ 	/* Do the rest non-__init'ed, we're now alive */
+ 	rest_init();
++	pr_notice("start_kernel: returning (in init/main.c) Dafna\n");
+ }
+ 
+ /* Call all constructor functions linked into the kernel. */
+diff --git a/mm/sparse.c b/mm/sparse.c
+index d1b48b6..9919fb8 100644
+--- a/mm/sparse.c
++++ b/mm/sparse.c
+@@ -527,6 +527,8 @@ void __init sparse_init(void)
+ 	unsigned long *usemap;
+ 	unsigned long **usemap_map;
+ 	int size;
++	pr_notice("sparse_init: Dafna\n");
++	
+ #ifdef CONFIG_SPARSEMEM_ALLOC_MEM_MAP_TOGETHER
+ 	int size2;
+ 	struct page **map_map;

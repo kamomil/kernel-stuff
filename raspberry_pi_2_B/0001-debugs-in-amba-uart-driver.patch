@@ -1,0 +1,84 @@
+From 617ac0b85afe6a85e27cea67615e08ec31b52099 Mon Sep 17 00:00:00 2001
+From: kamomil <dafna3@gmail.com>
+Date: Tue, 5 Dec 2017 13:29:21 +0200
+Subject: [PATCH] debugs in amba uart driver
+
+---
+ drivers/tty/serial/amba-pl011.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 5b39ad0..85bfd08 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -1410,16 +1410,22 @@ static void pl011_tx_chars(struct uart_amba_port *uap, bool from_irq)
+ 	if (pl011_dma_tx_irq(uap))
+ 		return;
+ 
++	trace_printk("pl011_tx_char: dafna: printing chars:\n");
++
+ 	do {
+ 		if (likely(from_irq) && count-- == 0)
+ 			break;
+ 
++		trace_printk("%c",xmit->buf[xmit->tail]);
++
+ 		if (!pl011_tx_char(uap, xmit->buf[xmit->tail], from_irq))
+ 			break;
+ 
+ 		xmit->tail = (xmit->tail + 1) & (UART_XMIT_SIZE - 1);
+ 	} while (!uart_circ_empty(xmit));
+ 
++	trace_printk("\n");
++
+ 	if (uart_circ_chars_pending(xmit) < WAKEUP_CHARS)
+ 		uart_write_wakeup(&uap->port);
+ 
+@@ -2459,6 +2465,15 @@ static int pl011_setup_port(struct device *dev, struct uart_amba_port *uap,
+ {
+ 	void __iomem *base;
+ 
++	struct resource {
++		resource_size_t start;
++		resource_size_t end;
++		const char *name;
++		unsigned long flags;
++		unsigned long desc;
++		struct resource *parent, *sibling, *child;
++	};
++	pr_info("pl011_setup_port: dafna: mmiobase->start=%p, mmiobase->end=%p, name=%s\n",mmiobase->start, mmiobase->end, mmiobase->name);
+ 	base = devm_ioremap_resource(dev, mmiobase);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+@@ -2513,10 +2528,12 @@ static int pl011_probe(struct amba_device *dev, const struct amba_id *id)
+ 	struct vendor_data *vendor = id->data;
+ 	int portnr, ret;
+ 
++	pr_info("pl011_probe: dafna: start\n");
+ 	portnr = pl011_find_free_port();
+ 	if (portnr < 0)
+ 		return portnr;
+ 
++	pr_info("pl011_probe: dafna: vendor=%p, vendor_arm=%p, portn=%d\n",vendor,&vendor_arm,portnr);
+ 	uap = devm_kzalloc(&dev->dev, sizeof(struct uart_amba_port),
+ 			   GFP_KERNEL);
+ 	if (!uap)
+@@ -2538,6 +2555,7 @@ static int pl011_probe(struct amba_device *dev, const struct amba_id *id)
+ 	uap->port.irq = dev->irq[0];
+ 	uap->port.ops = &amba_pl011_pops;
+ 
++	pr_info("pl011_probe: dafna: uap->reg_offset=%p, pl011_std_offsets=%p",uap->reg_offset,pl011_std_offsets);
+ 	snprintf(uap->type, sizeof(uap->type), "PL011 rev%u", amba_rev(dev));
+ 
+ 	ret = pl011_setup_port(&dev->dev, uap, &dev->res, portnr);
+@@ -2589,6 +2607,7 @@ static int sbsa_uart_probe(struct platform_device *pdev)
+ 	int portnr, ret;
+ 	int baudrate;
+ 
++	pr_info("sbsa_uart_probe: dafna: start\n");
+ 	/*
+ 	 * Check the mandatory baud rate parameter in the DT node early
+ 	 * so that we can easily exit with the error.
+-- 
+2.7.4
+
