@@ -114,6 +114,7 @@ Also, It takes it some time to load the initrd, better run qemu with a 4G ram:
 $ sudo qemu-system-x86_64 -hda d.img -m 4G
 ```
 
+**update:** it is very important to remove `/etc/grub.d/40_custom` after created and change the other scripts back to executables so that any command that upgrade grub will not ruin your `/boot/grub/grub.cfg` 
 
 
 
